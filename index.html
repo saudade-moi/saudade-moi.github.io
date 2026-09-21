@@ -9,76 +9,62 @@
 
 <style>
 
-/* ==================================================
-   PAGE
-   ================================================== */
+/* ---------- PAGE ---------- */
 
 * {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     width: 100%;
     min-height: 100%;
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
-    padding: 60px 20px 80px;
+    padding: 55px 20px;
 
     overflow-x: hidden;
 
     font-family: Georgia, "Times New Roman", serif;
     text-align: center;
 
-    color: #eee5ef;
+    color: #eee6ef;
 
     position: relative;
 
     background:
         radial-gradient(
-            ellipse at 18% 18%,
-            rgba(100, 25, 105, 0.20) 0%,
-            rgba(55, 10, 65, 0.10) 28%,
-            transparent 55%
+            circle at 15% 20%,
+            rgba(104, 35, 120, 0.30),
+            transparent 32%
         ),
 
         radial-gradient(
-            ellipse at 82% 72%,
-            rgba(75, 18, 90, 0.17) 0%,
-            transparent 52%
-        ),
-
-        radial-gradient(
-            ellipse at 50% 45%,
-            rgba(40, 8, 45, 0.12) 0%,
-            transparent 58%
+            circle at 85% 75%,
+            rgba(72, 24, 91, 0.30),
+            transparent 35%
         ),
 
         linear-gradient(
-            145deg,
-            #080509 0%,
-            #120713 38%,
-            #170817 65%,
-            #070507 100%
+            135deg,
+            #030203 0%,
+            #100812 48%,
+            #050305 100%
         );
-
-    background-attachment: fixed;
 }
 
 
-/* ==================================================
-   HALO VIOLET TRÈS DISCRET
-   ================================================== */
+/* ---------- POUSSIÈRE D’OR ---------- */
 
-body::before {
+body::after {
     content: "";
 
     position: fixed;
@@ -86,190 +72,121 @@ body::before {
 
     pointer-events: none;
 
-    background:
+    z-index: 0;
+
+    opacity: 0.72;
+
+    background-image:
+
         radial-gradient(
-            circle at 15% 28%,
-            rgba(130, 42, 135, 0.10),
-            transparent 24%
+            circle,
+            rgba(255, 214, 121, 0.90) 0 0.7px,
+            transparent 1.3px
         ),
 
         radial-gradient(
-            circle at 85% 63%,
-            rgba(105, 28, 120, 0.10),
-            transparent 28%
+            circle,
+            rgba(255, 190, 70, 0.65) 0 0.55px,
+            transparent 1.15px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255, 232, 174, 0.75) 0 0.45px,
+            transparent 1px
         );
 
-    filter: blur(20px);
+    background-size:
+        37px 37px,
+        59px 59px,
+        83px 83px;
 
-    z-index: 0;
+    background-position:
+        5px 11px,
+        21px 7px,
+        13px 31px;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.88),
+            rgba(0,0,0,0.58) 40%,
+            rgba(0,0,0,0.82)
+        );
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.88),
+            rgba(0,0,0,0.58) 40%,
+            rgba(0,0,0,0.82)
+        );
 }
 
 
-/* ==================================================
-   POUSSIÈRE D’OR
-   fine + irrégulière + diffuse
-   ================================================== */
-
-.gold-dust {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-    overflow: hidden;
-
-    z-index: 1;
-}
-
-.gold-dust span {
-    position: absolute;
-
-    width: var(--size);
-    height: var(--size);
-
-    left: var(--x);
-    top: var(--y);
-
-    border-radius: 50%;
-
-    background: rgba(229, 181, 86, var(--opacity));
-
-    box-shadow:
-        0 0 3px rgba(229, 181, 86, 0.40),
-        0 0 7px rgba(229, 181, 86, 0.18);
-
-    filter: blur(var(--blur));
-
-    animation:
-        shimmer var(--duration) ease-in-out infinite alternate;
-}
-
-
-@keyframes shimmer {
-
-    0% {
-        opacity: 0.35;
-        transform: scale(0.85);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1.15);
-    }
-
-}
-
-
-/* ==================================================
-   CARTE PRINCIPALE
-   ================================================== */
+/* ---------- CARTE ---------- */
 
 .card {
     position: relative;
-
-    z-index: 2;
+    z-index: 1;
 
     width: min(630px, 94vw);
 
-    padding: 72px 38px 52px;
+    padding: 68px 38px 48px;
 
     border-radius: 42px;
 
-    border: 1px solid rgba(224, 174, 73, 0.82);
+    border: 1px solid rgba(221, 171, 70, 0.82);
 
     background:
         linear-gradient(
-            150deg,
-            rgba(37, 8, 37, 0.78),
-            rgba(17, 5, 19, 0.88)
+            145deg,
+            rgba(12, 7, 13, 0.97) 0%,
+            rgba(29, 13, 34, 0.92) 50%,
+            rgba(7, 4, 8, 0.97) 100%
         );
 
     box-shadow:
-        0 0 5px rgba(232, 182, 76, 0.60),
-        0 0 18px rgba(211, 151, 49, 0.28),
-        0 0 45px rgba(122, 40, 120, 0.13),
-        inset 0 0 35px rgba(82, 20, 78, 0.14);
-
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+        0 0 6px rgba(227, 176, 75, 0.52),
+        0 0 18px rgba(196, 135, 40, 0.18),
+        inset 0 0 35px rgba(80, 30, 88, 0.18);
 }
 
 
-/* léger reflet intérieur */
-
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 1px;
-
-    border-radius: 40px;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 15%,
-            rgba(110, 35, 110, 0.08),
-            transparent 42%
-        );
-}
-
-
-/* ==================================================
-   TITRE
-   ================================================== */
+/* ---------- TITRE ---------- */
 
 h1 {
-    position: relative;
-
     margin: 0;
 
-    font-size: clamp(48px, 8vw, 67px);
+    font-size: clamp(45px, 8vw, 64px);
 
     font-weight: 400;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     line-height: 1.1;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f6d98e 0%,
-            #e8b653 48%,
-            #c98b2e 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
+    color: #e7b64f;
 
     text-shadow:
-        0 0 10px rgba(218, 157, 55, 0.10);
+        0 0 8px rgba(225, 171, 67, 0.16);
 }
 
 
-/* ==================================================
-   ORNEMENT CŒUR
-   ================================================== */
+/* ---------- CŒUR + TRAITS ---------- */
 
 .ornament {
-    margin: 35px auto 43px;
+    margin: 33px auto 40px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    gap: 20px;
-
-    color: #e8b852;
+    gap: 18px;
 }
 
-
 .line {
-    width: 120px;
+    width: 115px;
     height: 1px;
 
     background:
@@ -280,7 +197,6 @@ h1 {
         );
 }
 
-
 .line.right {
     background:
         linear-gradient(
@@ -290,78 +206,61 @@ h1 {
         );
 }
 
-
 .heart {
-    font-family: Georgia, serif;
+    font-size: 47px;
 
-    font-size: 49px;
     font-weight: 300;
 
     line-height: 1;
 
     color: #efc760;
-
-    transform: translateY(-2px);
 }
 
 
-/* ==================================================
-   TEXTES
-   ================================================== */
+/* ---------- PREMIER TEXTE ---------- */
 
 .subtitle {
-    margin: 0 0 28px;
+    margin: 0 0 27px;
 
-    font-size: 31px;
+    font-size: 29px;
+
+    line-height: 1.4;
 
     font-style: italic;
     font-weight: 600;
 
-    color: #d8bdd7;
-
-    line-height: 1.35;
-
-    text-shadow:
-        0 0 12px rgba(153, 80, 148, 0.15);
+    color: #d9bfd9;
 }
 
 
+/* ---------- DEUXIÈME TEXTE ---------- */
+
 .description {
-    margin: 0 auto 52px;
+    margin: 0 auto 48px;
 
     max-width: 520px;
 
-    font-size: 31px;
-
-    font-weight: 400;
+    font-size: 29px;
 
     line-height: 1.45;
 
-    color: #eee4ef;
+    color: #eee5ef;
 }
 
 
-/* ==================================================
-   SPOTIFY
-   ================================================== */
+/* ---------- SPOTIFY ---------- */
 
 .spotify-container {
-    position: relative;
-
     width: 100%;
 
     margin: 0 auto;
 
-    border-radius: 23px;
-
     overflow: hidden;
 
-    border: 1px solid rgba(220, 165, 64, 0.70);
+    border-radius: 22px;
 
-    box-shadow:
-        0 0 10px rgba(218, 161, 58, 0.12);
+    border: 1px solid rgba(216, 163, 65, 0.65);
 }
-
 
 .spotify-container iframe {
     display: block;
@@ -373,93 +272,59 @@ h1 {
 }
 
 
-/* ==================================================
-   MOBILE
-   ================================================== */
+/* ---------- TÉLÉPHONE ---------- */
 
 @media (max-width: 600px) {
 
     body {
-        padding: 60px 16px 70px;
+        align-items: flex-start;
+
+        padding:
+            60px
+            16px
+            65px;
     }
 
     .card {
         width: 100%;
 
         padding:
-            62px
-            27px
-            47px;
+            58px
+            25px
+            43px;
 
         border-radius: 38px;
     }
 
     h1 {
-        font-size: 45px;
-
-        letter-spacing: 2px;
+        font-size: 44px;
     }
 
     .ornament {
         margin:
-            32px auto
-            42px;
+            31px auto
+            39px;
 
-        gap: 15px;
+        gap: 14px;
     }
 
     .line {
-        width: 82px;
+        width: 78px;
     }
 
     .heart {
-        font-size: 43px;
+        font-size: 42px;
     }
 
     .subtitle {
-        font-size: 25px;
-
-        margin-bottom: 26px;
+        font-size: 24px;
     }
 
     .description {
-        font-size: 25px;
+        font-size: 24px;
 
-        margin-bottom: 46px;
+        margin-bottom: 43px;
     }
-
-    .spotify-container iframe {
-        height: 270px;
-    }
-
-}
-
-
-/* petits téléphones */
-
-@media (max-width: 390px) {
-
-    .card {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    h1 {
-        font-size: 39px;
-    }
-
-    .line {
-        width: 65px;
-    }
-
-    .subtitle {
-        font-size: 22px;
-    }
-
-    .description {
-        font-size: 23px;
-    }
-
 }
 
 </style>
@@ -468,18 +333,9 @@ h1 {
 
 <body>
 
-
-<!-- POUSSIÈRE D’OR -->
-
-<div class="gold-dust" id="goldDust"></div>
-
-
-<!-- CARTE -->
-
 <main class="card">
 
     <h1>Saudade &amp; Moi</h1>
-
 
     <div class="ornament">
 
@@ -491,16 +347,13 @@ h1 {
 
     </div>
 
-
     <p class="subtitle">
         Un peu de moi, un peu de nous...
     </p>
 
-
     <p class="description">
         Où chaque souvenir se prolonge en musique
     </p>
-
 
     <div class="spotify-container">
 
@@ -513,84 +366,6 @@ h1 {
     </div>
 
 </main>
-
-
-<script>
-
-/*
-   Création de la poussière d’or.
-
-   Les particules sont volontairement :
-   - irrégulières
-   - de tailles différentes
-   - plus ou moins visibles
-   - réparties aléatoirement
-
-   Cela évite précisément l’effet
-   "petits points alignés/réguliers".
-*/
-
-const dust = document.getElementById("goldDust");
-
-const numberOfParticles = 115;
-
-for (let i = 0; i < numberOfParticles; i++) {
-
-    const particle = document.createElement("span");
-
-    const size =
-        Math.random() * 2.2 + 0.6;
-
-    const x =
-        Math.random() * 100;
-
-    const y =
-        Math.random() * 100;
-
-    const opacity =
-        Math.random() * 0.50 + 0.18;
-
-    const blur =
-        Math.random() * 0.8;
-
-    const duration =
-        Math.random() * 4 + 3;
-
-    particle.style.setProperty(
-        "--size",
-        size + "px"
-    );
-
-    particle.style.setProperty(
-        "--x",
-        x + "%"
-    );
-
-    particle.style.setProperty(
-        "--y",
-        y + "%"
-    );
-
-    particle.style.setProperty(
-        "--opacity",
-        opacity
-    );
-
-    particle.style.setProperty(
-        "--blur",
-        blur + "px"
-    );
-
-    particle.style.setProperty(
-        "--duration",
-        duration + "s"
-    );
-
-    dust.appendChild(particle);
-}
-
-</script>
-
 
 </body>
 </html>
