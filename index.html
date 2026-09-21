@@ -15,7 +15,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     width: 100%;
     min-height: 100%;
@@ -34,22 +35,18 @@ body {
     text-align: center;
     color: white;
 
-    /* TON IMAGE DE FOND */
     background-image:
-        url("Image%20ChatGPT%2021%20sept.%202026,%2014_09_20.png");
+        url("images/ChatGPT%20Image%2021%20sept.%202026,%2014_09_20.png");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 
 /* ---------- RECTANGLE ---------- */
 
 .card {
-    position: relative;
-
     width: 520px;
     max-width: 88vw;
 
@@ -59,126 +56,33 @@ body {
 
     border-radius: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(10, 6, 11, 0.92),
-            rgba(28, 12, 32, 0.88),
-            rgba(7, 4, 8, 0.94)
-        );
+    background: rgba(10, 6, 11, 0.88);
 
     border: 1px solid rgba(236, 188, 84, 0.85);
 
     box-shadow:
-        0 0 8px rgba(255, 198, 83, .45),
-        0 0 28px rgba(213, 155, 54, .20),
-        0 18px 55px rgba(0, 0, 0, .75),
-        inset 0 0 30px rgba(103, 40, 119, .12);
-}
-
-
-/* ---------- CONTOUR DORÉ ---------- */
-
-.card::before {
-    content: "";
-
-    position: absolute;
-    inset: -2px;
-
-    border-radius: 21px;
-    padding: 1px;
-
-    background:
-        linear-gradient(
-            115deg,
-            transparent,
-            #e8b74e,
-            #fff0b1,
-            transparent 35%,
-            transparent 65%,
-            #d99d36,
-            #ffe8a0,
-            transparent
-        );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    pointer-events: none;
+        0 0 8px rgba(255, 198, 83, 0.40),
+        0 15px 40px rgba(0, 0, 0, 0.65);
 }
 
 
 /* ---------- TITRE ---------- */
 
 h1 {
+    margin: 0 0 18px;
+
     font-size: 40px;
-
-    margin: 0 0 12px;
-
-    letter-spacing: 3px;
     font-weight: normal;
+    letter-spacing: 3px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #c8892e,
-            #f3ca6a,
-            #fff0b0,
-            #dca13b,
-            #ffe29a
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    text-shadow:
-        0 0 15px rgba(229, 172, 63, .15);
+    color: #f0c765;
 }
 
 
-/* ---------- CŒUR + LIGNES ---------- */
-
-h1::after {
-    content: "♡";
-
-    display: block;
-
-    width: 200px;
-
-    margin: 11px auto 16px;
-
-    font-size: 21px;
-    line-height: 1;
-
-    color: #e9bd59;
-
-    background:
-        linear-gradient(
-            90deg,
-            #dca43e,
-            #f7da88
-        )
-        left center / 75px 1px no-repeat,
-
-        linear-gradient(
-            90deg,
-            #f7da88,
-            #dca43e
-        )
-        right center / 75px 1px no-repeat;
-}
-
-
-/* ---------- SOUS-TITRE ---------- */
+/* ---------- PREMIÈRE PHRASE ---------- */
 
 .subtitle {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
 
     font-size: 19px;
     font-style: italic;
@@ -187,7 +91,7 @@ h1::after {
 }
 
 
-/* ---------- TEXTE ---------- */
+/* ---------- DEUXIÈME PHRASE ---------- */
 
 .card p:not(.subtitle) {
     margin: 0;
@@ -199,25 +103,10 @@ h1::after {
 }
 
 
-/* ---------- SPOTIFY ---------- */
+/* ---------- MUSIQUE SPOTIFY ---------- */
 
 .music-player {
-    margin-top: 20px;
-
-    padding: 1px;
-
-    border-radius: 13px;
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(232, 183, 78, .85),
-            rgba(115, 52, 127, .45),
-            rgba(232, 183, 78, .75)
-        );
-
-    box-shadow:
-        0 0 18px rgba(224, 169, 63, .10);
+    margin-top: 22px;
 }
 
 iframe {
@@ -239,7 +128,6 @@ iframe {
         padding: 20px 10px;
 
         background-position: center;
-        background-attachment: scroll;
     }
 
     .card {
@@ -254,26 +142,12 @@ iframe {
         letter-spacing: 2px;
     }
 
-    h1::after {
-        width: 170px;
-
-        margin: 10px auto 15px;
-
-        background-size:
-            62px 1px,
-            62px 1px;
-    }
-
     .subtitle {
         font-size: 17px;
     }
 
     .card p:not(.subtitle) {
         font-size: 15px;
-    }
-
-    .music-player {
-        margin-top: 17px;
     }
 }
 
@@ -289,7 +163,7 @@ iframe {
     <h1>Saudade & Moi</h1>
 
     <p class="subtitle">
-        Un peu de moi, un peu de nous...
+        Un peu de moi, un peu de nous…
     </p>
 
     <p>
