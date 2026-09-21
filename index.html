@@ -9,14 +9,11 @@
 
 <style>
 
-/* ---------- PAGE ---------- */
-
 * {
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     width: 100%;
     min-height: 100%;
@@ -35,12 +32,12 @@ body {
     text-align: center;
     color: white;
 
-    background-image:
-        url("fond.png");
-
+    /* TON FOND */
+    background-image: url("./fond.png");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-color: #080509;
 }
 
 
@@ -51,7 +48,6 @@ body {
     max-width: 88vw;
 
     margin: 0 auto;
-
     padding: 28px 32px 25px;
 
     border-radius: 20px;
@@ -79,7 +75,7 @@ h1 {
 }
 
 
-/* ---------- PREMIÈRE PHRASE ---------- */
+/* ---------- SOUS-TITRE ---------- */
 
 .subtitle {
     margin: 0 0 10px;
@@ -91,7 +87,7 @@ h1 {
 }
 
 
-/* ---------- DEUXIÈME PHRASE ---------- */
+/* ---------- TEXTE ---------- */
 
 .card p:not(.subtitle) {
     margin: 0;
@@ -103,7 +99,7 @@ h1 {
 }
 
 
-/* ---------- MUSIQUE SPOTIFY ---------- */
+/* ---------- SPOTIFY ---------- */
 
 .music-player {
     margin-top: 22px;
@@ -126,8 +122,7 @@ iframe {
 
     body {
         padding: 20px 10px;
-
-        background-position: center;
+        background-position: center center;
     }
 
     .card {
@@ -152,9 +147,7 @@ iframe {
 }
 
 </style>
-
 </head>
-
 
 <body>
 
@@ -183,5 +176,4 @@ iframe {
 </div>
 
 </body>
-
 </html>
