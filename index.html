@@ -9,6 +9,8 @@
 
 <style>
 
+/* ---------- PAGE ---------- */
+
 * {
     box-sizing: border-box;
 }
@@ -21,217 +23,109 @@ html, body {
 
 body {
     min-height: 100vh;
-    margin: 0;
-    padding: 55px 20px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-family: Georgia, "Times New Roman", serif;
+    padding: 30px 15px;
+
+    overflow-x: hidden;
+
+    font-family: Georgia, serif;
     text-align: center;
     color: white;
 
-    background-color: #050305;
+    /* LE FOND QUE TU AVAIS CHOISI */
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(104, 35, 120, 0.30),
+            transparent 35%),
 
-    background-image:
-        url("ChatGPT%20Image%2021%20sept.%202026%2C%2014_09_20.png");
+        radial-gradient(circle at 85% 75%,
+            rgba(129, 46, 116, 0.22),
+            transparent 38%),
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+        radial-gradient(circle at 50% 50%,
+            rgba(59, 27, 78, 0.18),
+            transparent 55%),
+
+        linear-gradient(
+            135deg,
+            #08050d 0%,
+            #14091d 45%,
+            #09050e 100%
+        );
 }
 
 
-/* ===== CARTE ===== */
+/* ---------- RECTANGLE CENTRAL ---------- */
 
-.card {
-    width: min(320px, 80vw);
-height: 480px;
-    padding: 15px 15px 12px;
+.carte {
+    width: 90%;
+    max-width: 480px;
 
-    border-radius: 35px;
+    padding: 28px 35px;
 
-    border: 2px solid #e7b34e;
+    border: 1px solid rgba(210, 170, 110, 0.45);
+    border-radius: 22px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(5, 3, 4, 0.94),
-            rgba(19, 8, 17, 0.92),
-            rgba(5, 3, 4, 0.95)
-        );
+    background: rgba(13, 8, 18, 0.42);
 
     box-shadow:
-        0 0 8px rgba(255, 190, 70, 0.95),
-        0 0 22px rgba(255, 166, 47, 0.60),
-        0 0 55px rgba(255, 149, 35, 0.25),
-        inset 0 0 30px rgba(255, 172, 57, 0.10);
+        0 0 30px rgba(113, 48, 137, 0.18),
+        inset 0 0 25px rgba(255,255,255,0.015);
 }
 
 
-/* ===== TITRE ===== */
+/* ---------- TITRE ---------- */
 
 h1 {
-    margin: 0;
+    margin: 0 0 18px 0;
 
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: 29px;
+    font-weight: normal;
 
-    line-height: 1.05;
-
-    font-weight: 400;
-
-    color: #f0bd55;
+    color: #f2d9a6;
 
     text-shadow:
-        0 0 8px rgba(255, 187, 65, 0.30);
+        0 0 10px rgba(220, 170, 100, 0.30);
 }
 
 
-/* ===== CŒUR ===== */
+/* ---------- TEXTE ---------- */
 
-.ornament {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.texte {
+    margin: 0;
 
-    gap: 20px;
+    font-size: 16px;
+    line-height: 1.8;
 
-    margin: 25px auto 25px;
-}
-
-.line {
-    width: 190px;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #efbd54
-        );
-}
-
-.line.right {
-    background:
-        linear-gradient(
-            90deg,
-            #efbd54,
-            transparent
-        );
-}
-
-.heart {
-    font-size: 48px;
-    line-height: 1;
-
-    color: #f0c65c;
+    color: rgba(255,255,255,0.92);
 }
 
 
-/* ===== TEXTES ===== */
-
-.subtitle {
-    margin: 0 0 10px;
-
-    font-size: clamp(25px, 3vw, 35px);
-
-    font-style: italic;
-
-    color: #e6c9e5;
-}
-
-.description {
-    margin: 0 0 32px;
-
-    font-size: clamp(25px, 3vw, 35px);
-
-    font-style: italic;
-
-    color: #ead6e8;
-}
-
-
-/* ===== SPOTIFY ===== */
-
-.spotify-container {
-    width: 100%;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    border: 1px solid rgba(229, 174, 67, 0.85);
-
-    background: #000;
-}
-
-.spotify-container iframe {
-    display: block;
-
-    width: 100%;
-    height: 232px;
-
-    border: 0;
-}
-
-
-/* ===== TÉLÉPHONE ===== */
+/* ---------- TÉLÉPHONE ---------- */
 
 @media (max-width: 600px) {
 
-    body {
-        min-height: 100vh;
+    .carte {
+        width: 88%;
+        max-width: 380px;
 
-        padding: 45px 16px;
+        padding: 24px 25px;
 
-        align-items: flex-start;
-
-        background-position: center center;
-    }
-
-    .card {
-        width: 100%;
-
-        padding: 48px 24px 35px;
-
-        border-radius: 30px;
+        border-radius: 20px;
     }
 
     h1 {
-        font-size: 45px;
+        font-size: 25px;
+        margin-bottom: 15px;
     }
 
-    .ornament {
-        margin: 25px auto 30px;
-        gap: 13px;
-    }
-
-    .line {
-        width: 75px;
-    }
-
-    .heart {
-        font-size: 42px;
-    }
-
-    .subtitle {
-        font-size: 24px;
-
-        margin-bottom: 20px;
-    }
-
-    .description {
-        font-size: 24px;
-
-        line-height: 1.4;
-
-        margin-bottom: 35px;
-    }
-
-    .spotify-container iframe {
-        height: 270px;
+    .texte {
+        font-size: 15px;
+        line-height: 1.7;
     }
 }
 
@@ -241,35 +135,19 @@ h1 {
 
 <body>
 
-<main class="card">
+<div class="carte">
 
-    <h1>Saudade &amp; Moi</h1>
+    <h1>Saudade &amp; Moi ♡</h1>
 
-    <div class="ornament">
-        <span class="line"></span>
-        <span class="heart">♡</span>
-        <span class="line right"></span>
-    </div>
-
-    <p class="subtitle">
-        Un peu de moi, un peu de nous...
+    <p class="texte">
+        Un peu de moi, un peu de nous...<br>
+        des souvenirs, des émotions,<br>
+        et ces petits morceaux de vie<br>
+        qu'on garde précieusement.
     </p>
 
-    <p class="description">
-        Où chaque souvenir se prolonge en musique
-    </p>
-
-    <div class="spotify-container">
-
-        <iframe
-            src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-        </iframe>
-
-    </div>
-
-</main>
+</div>
 
 </body>
+
 </html>
