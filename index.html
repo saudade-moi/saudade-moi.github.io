@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Saudade & Moi</title>
-  
-<style> body { margin: 0; min-height: 100vh; text-align: center; font-family: Georgia, serif; background: linear-gradient(135deg, #1b1025, #3b1f3f); } .card { max-width: 700px; margin: 80px auto; padding: 40px; border-radius: 25px; background: rgba(255, 255, 255, 0.08); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); } h1 { font-size: 48px; margin-top: 40px; letter-spacing: 3px; color: #f7d7f0; } .subtitle { font-size: 22px; font-style: italic; margin-top: -10px; color: #e8cfe2; } .card p { font-size: 20px; line-height: 1.6; color: #f0e6f5; } .music-player { margin-top: 30px; } iframe { border-radius: 12px; width: 100%; height: 152px; border: 0; } </style>
+<html lang="fr">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saudade & Moi</title>
+
+<style> /* ---------- PAGE ---------- */ * { box-sizing: border-box; } body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; font-family: Georgia, serif; text-align: center; background: radial-gradient(circle at 15% 20%, rgba(104, 35, 120, 0.30), transparent 32%), radial-gradient(circle at 85% 75%, rgba(72, 24, 91, 0.30), transparent 35%), linear-gradient( 135deg, #030203 0%, #100812 48%, #050305 100% ); color: white; } /* ---------- HALO VIOLET ---------- */ body::before { content: ""; position: fixed; inset: -30%; background: radial-gradient( ellipse at center, transparent 45%, rgba(113, 43, 132, 0.12) 58%, transparent 72% ); transform: rotate(-15deg); pointer-events: none; } /* ---------- POUSSIÈRE D'OR ---------- */ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: 0.65; background-image: radial-gradient(circle, rgba(255, 214, 121, .90) 0 1px, transparent 1.5px), radial-gradient(circle, rgba(255, 190, 70, .65) 0 0.8px, transparent 1.4px), radial-gradient(circle, rgba(255, 232, 174, .75) 0 0.7px, transparent 1.2px); background-size: 43px 43px, 67px 67px, 91px 91px; background-position: 0 0, 18px 25px, 41px 12px; mask-image: linear-gradient( 120deg, transparent 5%, black 25%, transparent 47%, black 72%, transparent 95% ); } /* ---------- CARTE ---------- */ .card { position: relative; z-index: 2; width: calc(100% - 40px); max-width: 700px; margin: 40px auto; padding: 55px 45px 45px; border-radius: 25px; background: linear-gradient( 145deg, rgba(17, 9, 18, 0.96), rgba(31, 14, 35, 0.90), rgba(8, 5, 9, 0.96) ); border: 1px solid rgba(236, 188, 84, 0.85); box-shadow: 0 0 8px rgba(255, 198, 83, .45), 0 0 28px rgba(213, 155, 54, .20), 0 18px 55px rgba(0, 0, 0, .75), inset 0 0 30px rgba(103, 40, 119, .12); } /* ---------- PETIT ÉCLAT DORÉ AUTOUR DE LA CARTE ---------- */ .card::before { content: ""; position: absolute; inset: -2px; border-radius: 26px; padding: 1px; background: linear-gradient( 115deg, transparent, #e8b74e, #fff0b1, transparent 35%, transparent 65%, #d99d36, #ffe8a0, transparent ); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; } /* ---------- TITRE ---------- */ h1 { font-size: 48px; margin: 15px 0 18px; letter-spacing: 3px; font-weight: normal; background: linear-gradient( 90deg, #c8892e, #f3ca6a, #fff0b0, #dca13b, #ffe29a ); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 0 15px rgba(229, 172, 63, .15); } /* ---------- PETITE LIGNE DORÉE ---------- */ h1::after { content: "♡"; display: block; width: 230px; margin: 18px auto 26px; font-size: 25px; line-height: 1; color: #e9bd59; background: linear-gradient( 90deg, #dca43e, #f7da88 ) left center / 88px 1px no-repeat, linear-gradient( 90deg, #f7da88, #dca43e ) right center / 88px 1px no-repeat; } /* ---------- SOUS-TITRE ---------- */ .subtitle { margin: 0 0 15px; font-size: 22px; font-style: italic; color: #e6c5e7; } /* ---------- TEXTE ---------- */ .card p:not(.subtitle) { margin: 0; font-size: 20px; line-height: 1.6; color: #ead8ed; } /* ---------- LECTEUR SPOTIFY ---------- */ .music-player { margin-top: 32px; padding: 1px; border-radius: 13px; background: linear-gradient( 120deg, rgba(232, 183, 78, .85), rgba(115, 52, 127, .45), rgba(232, 183, 78, .75) ); box-shadow: 0 0 18px rgba(224, 169, 63, .10); } iframe { display: block; width: 100%; height: 152px; border: 0; border-radius: 12px; } /* ---------- MOBILE ---------- */ @media (max-width: 600px) { body { align-items: flex-start; overflow: auto; } .card { margin: 35px 18px; width: calc(100% - 36px); padding: 40px 22px 30px; } h1 { font-size: 37px; letter-spacing: 2px; } h1::after { width: 190px; background-size: 70px 1px, 70px 1px; } .subtitle { font-size: 19px; } .card p:not(.subtitle) { font-size: 18px; } } </style>
 
 </head>
 
@@ -12,9 +16,9 @@
 
 <h1>Saudade & Moi</h1>
 
-<p class="subtitle">Un peu de moi, un peu de nous...</p>
+<p class="subtitle"> Un peu de moi, un peu de nous... </p>
 
-<p>Où chaque souvenir se prolonge en musique</p>
+<p> Où chaque souvenir se prolonge en musique </p>
 
 <div class="music-player">
 
@@ -24,4 +28,6 @@
 
 </div>
 
-</body> </html>  
+</body>
+
+</html>
