@@ -15,16 +15,26 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+
+    padding: 30px 15px;
+
+    overflow-x: hidden;
 
     font-family: Georgia, serif;
     text-align: center;
+    color: white;
 
     background:
         radial-gradient(circle at 15% 20%,
@@ -41,8 +51,6 @@ body {
             #100812 48%,
             #050305 100%
         );
-
-    color: white;
 }
 
 
@@ -100,6 +108,16 @@ body::after {
         18px 25px,
         41px 12px;
 
+    -webkit-mask-image:
+        linear-gradient(
+            120deg,
+            transparent 5%,
+            black 25%,
+            transparent 47%,
+            black 72%,
+            transparent 95%
+        );
+
     mask-image:
         linear-gradient(
             120deg,
@@ -112,19 +130,20 @@ body::after {
 }
 
 
-/* ---------- CARTE ---------- */
+/* ---------- RECTANGLE ---------- */
 
 .card {
     position: relative;
     z-index: 2;
 
-    width: 88%;
-    max-width: 500px;
+    width: 520px;
+    max-width: 88vw;
 
-    margin: 40px auto;
-    padding: 35px 30px;
+    margin: 0 auto;
 
-    border-radius: 25px;
+    padding: 28px 32px 25px;
+
+    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -134,7 +153,6 @@ body::after {
             rgba(8, 5, 9, 0.96)
         );
 
-   
     border: 1px solid rgba(236, 188, 84, 0.85);
 
     box-shadow:
@@ -145,14 +163,14 @@ body::after {
 }
 
 
-/* ---------- ÉCLAT DORÉ AUTOUR DE LA CARTE ---------- */
+/* ---------- CONTOUR DORÉ ---------- */
 
 .card::before {
     content: "";
     position: absolute;
     inset: -2px;
 
-    border-radius: 26px;
+    border-radius: 21px;
     padding: 1px;
 
     background:
@@ -182,8 +200,10 @@ body::after {
 /* ---------- TITRE ---------- */
 
 h1 {
-    font-size: 48px;
-    margin: 15px 0 18px;
+    font-size: 40px;
+
+    margin: 0 0 12px;
+
     letter-spacing: 3px;
     font-weight: normal;
 
@@ -207,17 +227,18 @@ h1 {
 }
 
 
-/* ---------- PETITE LIGNE DORÉE ---------- */
+/* ---------- CŒUR + LIGNES ---------- */
 
 h1::after {
     content: "♡";
 
     display: block;
-    width: 230px;
 
-    margin: 18px auto 26px;
+    width: 200px;
 
-    font-size: 25px;
+    margin: 11px auto 16px;
+
+    font-size: 21px;
     line-height: 1;
 
     color: #e9bd59;
@@ -228,23 +249,23 @@ h1::after {
             #dca43e,
             #f7da88
         )
-        left center / 88px 1px no-repeat,
+        left center / 75px 1px no-repeat,
 
         linear-gradient(
             90deg,
             #f7da88,
             #dca43e
         )
-        right center / 88px 1px no-repeat;
+        right center / 75px 1px no-repeat;
 }
 
 
 /* ---------- SOUS-TITRE ---------- */
 
 .subtitle {
-    margin: 0 0 15px;
+    margin: 0 0 8px;
 
-    font-size: 22px;
+    font-size: 19px;
     font-style: italic;
 
     color: #e6c5e7;
@@ -256,17 +277,18 @@ h1::after {
 .card p:not(.subtitle) {
     margin: 0;
 
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.4;
 
     color: #ead8ed;
 }
 
 
-/* ---------- LECTEUR SPOTIFY ---------- */
+/* ---------- SPOTIFY ---------- */
 
 .music-player {
-    margin-top: 32px;
+    margin-top: 20px;
+
     padding: 1px;
 
     border-radius: 13px;
@@ -295,48 +317,53 @@ iframe {
 }
 
 
-/* ---------- MOBILE ---------- */
+/* ---------- TÉLÉPHONE ---------- */
 
 @media (max-width: 600px) {
 
     body {
-        align-items: flex-start;
-        overflow: auto;
+        padding: 20px 10px;
     }
 
     .card {
-        margin: 35px auto;
+        width: 88vw;
+        max-width: 360px;
 
-        width: 88%;
-
-        padding: 30px 20px;
+        padding: 24px 18px 20px;
     }
 
     h1 {
-        font-size: 37px;
+        font-size: 31px;
         letter-spacing: 2px;
     }
 
     h1::after {
-        width: 190px;
+        width: 170px;
+
+        margin: 10px auto 15px;
 
         background-size:
-            70px 1px,
-            70px 1px;
+            62px 1px,
+            62px 1px;
     }
 
     .subtitle {
-        font-size: 19px;
+        font-size: 17px;
     }
 
     .card p:not(.subtitle) {
-        font-size: 18px;
+        font-size: 15px;
+    }
+
+    .music-player {
+        margin-top: 17px;
     }
 }
 
 </style>
 
 </head>
+
 
 <body>
 
