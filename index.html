@@ -8,7 +8,6 @@
 
 <title>Saudade & Moi</title>
 
-<!-- POLICES -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -16,9 +15,9 @@
 
 <style>
 
-/* ==========================================================
+/* =========================================================
    PAGE
-   ========================================================== */
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -40,9 +39,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    overflow-x: hidden;
+    padding: 35px 18px;
 
-    padding: 25px 15px;
+    overflow-x: hidden;
 
     text-align: center;
     color: white;
@@ -50,48 +49,145 @@ body {
     background:
         url("./fond.png")
         center center / cover
-        no-repeat fixed;
+        no-repeat
+        fixed;
 
     background-color: #050205;
 }
 
 
-/* ==========================================================
+/* =========================================================
    CADRE PRINCIPAL
-   ========================================================== */
+   ========================================================= */
 
 .card {
 
     position: relative;
 
-    width: 620px;
-    max-width: 90vw;
+    width: min(760px, 88vw);
 
-    padding: 27px 34px 25px;
+    padding:
+        34px
+        46px
+        31px;
 
     border-radius: 20px;
 
+    /*
+       Fond sombre et légèrement transparent
+       comme sur ton image de référence.
+    */
     background:
+
         radial-gradient(
-            ellipse at 50% 40%,
-            rgba(34, 18, 11, 0.20) 0%,
-            rgba(8, 3, 6, 0.88) 72%
+            ellipse at 50% 34%,
+            rgba(49, 27, 17, 0.18) 0%,
+            rgba(13, 6, 9, 0.76) 48%,
+            rgba(5, 2, 5, 0.91) 100%
         );
 
-    border: 1px solid rgba(255, 205, 105, 1);
+    /*
+       Bordure fine dorée.
+    */
+    border:
+        1px solid
+        rgba(255, 193, 76, 0.95);
 
+    /*
+       Halo très fin autour du cadre.
+       Il ne doit pas devenir une grosse bordure lumineuse.
+    */
     box-shadow:
-        0 0 2px rgba(255, 239, 190, 0.85),
-        0 0 6px rgba(255, 181, 55, 0.55),
-        0 0 14px rgba(255, 137, 25, 0.25),
-        inset 0 0 10px rgba(255, 177, 45, 0.08),
-        0 12px 35px rgba(0, 0, 0, 0.65);
+
+        0 0 2px
+        rgba(255, 247, 207, 0.95),
+
+        0 0 6px
+        rgba(255, 183, 55, 0.52),
+
+        0 0 15px
+        rgba(230, 116, 17, 0.20),
+
+        inset 0 0 11px
+        rgba(255, 173, 45, 0.055),
+
+        0 15px 45px
+        rgba(0, 0, 0, 0.62);
 }
 
 
-/* ==========================================================
-   ÉCLATS LUMINEUX DU CADRE
-   ========================================================== */
+/* =========================================================
+   LUMIÈRE DOUCE DES 4 COINS
+   ========================================================= */
+
+/*
+   Sur la référence les coins sont lumineux,
+   mais ce ne sont PAS quatre étoiles identiques.
+*/
+
+.corner-glow {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 227, 151, 0.70);
+
+    box-shadow:
+
+        0 0 4px 2px
+        rgba(255, 235, 176, 0.42),
+
+        0 0 10px 5px
+        rgba(255, 172, 47, 0.20),
+
+        0 0 20px 8px
+        rgba(222, 102, 15, 0.10);
+}
+
+.corner-tl {
+    top: 5px;
+    left: 6px;
+}
+
+.corner-tr {
+    top: 5px;
+    right: 6px;
+}
+
+.corner-bl {
+    bottom: 5px;
+    left: 6px;
+}
+
+.corner-br {
+    bottom: 5px;
+    right: 6px;
+}
+
+
+/* =========================================================
+   4 ÉCLATS PRINCIPAUX
+   ========================================================= */
+
+/*
+   Référence :
+   - milieu en haut
+   - milieu en bas
+   - milieu à gauche
+   - milieu à droite
+
+   Centre presque blanc,
+   puis lumière or.
+*/
 
 .spark {
 
@@ -99,24 +195,32 @@ body {
 
     z-index: 5;
 
-    pointer-events: none;
+    width: 3px;
+    height: 3px;
 
-    width: 2px;
-    height: 2px;
+    pointer-events: none;
 
     border-radius: 50%;
 
-    background: #ffffff;
+    background: #fffdf0;
 
     box-shadow:
-        0 0 2px 1px #ffffff,
-        0 0 5px 2px #fff2b0,
-        0 0 9px 3px rgba(255, 184, 55, 0.80),
-        0 0 15px 4px rgba(255, 132, 20, 0.35);
+
+        0 0 2px 1px
+        rgba(255, 255, 245, 1),
+
+        0 0 5px 2px
+        rgba(255, 235, 159, 0.90),
+
+        0 0 10px 3px
+        rgba(255, 180, 53, 0.63),
+
+        0 0 18px 5px
+        rgba(230, 117, 18, 0.24);
 }
 
 
-/* trait horizontal de l'étoile */
+/* trait horizontal très fin */
 
 .spark::before {
 
@@ -124,29 +228,42 @@ body {
 
     position: absolute;
 
-    width: 16px;
-    height: 1px;
-
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    width: 21px;
+    height: 1px;
+
+    transform:
+        translate(-50%, -50%);
 
     background:
+
         linear-gradient(
             90deg,
-            transparent,
-            rgba(255, 191, 70, 0.20),
-            #fff8d2,
-            #ffffff,
-            #fff8d2,
-            rgba(255, 191, 70, 0.20),
-            transparent
+
+            transparent 0%,
+
+            rgba(255, 184, 52, 0.05) 15%,
+
+            rgba(255, 220, 126, 0.40) 35%,
+
+            #fff9d8 47%,
+
+            #ffffff 50%,
+
+            #fff9d8 53%,
+
+            rgba(255, 220, 126, 0.40) 65%,
+
+            rgba(255, 184, 52, 0.05) 85%,
+
+            transparent 100%
         );
 }
 
 
-/* trait vertical de l'étoile */
+/* trait vertical très fin */
 
 .spark::after {
 
@@ -154,126 +271,102 @@ body {
 
     position: absolute;
 
-    width: 1px;
-    height: 12px;
-
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 15px;
+
+    transform:
+        translate(-50%, -50%);
 
     background:
+
         linear-gradient(
             180deg,
-            transparent,
-            rgba(255, 191, 70, 0.15),
-            #fff8d2,
-            #ffffff,
-            #fff8d2,
-            rgba(255, 191, 70, 0.15),
-            transparent
+
+            transparent 0%,
+
+            rgba(255, 184, 52, 0.05) 15%,
+
+            rgba(255, 220, 126, 0.40) 35%,
+
+            #fff9d8 47%,
+
+            #ffffff 50%,
+
+            #fff9d8 53%,
+
+            rgba(255, 220, 126, 0.40) 65%,
+
+            rgba(255, 184, 52, 0.05) 85%,
+
+            transparent 100%
         );
 }
 
 
-/* MILIEU HAUT */
+/* position des 4 éclats */
 
 .spark-top {
 
     top: -1px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translate(-50%, -50%);
 }
-
-
-/* MILIEU BAS */
 
 .spark-bottom {
 
     bottom: -1px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translate(-50%, 50%);
 }
-
-
-/* MILIEU GAUCHE */
 
 .spark-left {
 
     left: -1px;
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translate(-50%, -50%);
 }
-
-
-/* MILIEU DROITE */
 
 .spark-right {
 
     right: -1px;
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translate(50%, -50%);
 }
 
 
-/* COIN HAUT GAUCHE */
-
-.spark-top-left {
-
-    top: 11px;
-    left: 7px;
-}
-
-
-/* COIN HAUT DROIT */
-
-.spark-top-right {
-
-    top: 11px;
-    right: 7px;
-}
-
-
-/* COIN BAS GAUCHE */
-
-.spark-bottom-left {
-
-    bottom: 11px;
-    left: 7px;
-}
-
-
-/* COIN BAS DROIT */
-
-.spark-bottom-right {
-
-    bottom: 11px;
-    right: 7px;
-}
-
-
-/* ==========================================================
+/* =========================================================
    TITRE
-   ========================================================== */
+   ========================================================= */
 
 .title {
+
+    position: relative;
+    z-index: 2;
 
     margin: 0;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     white-space: nowrap;
 
-    line-height: 0.92;
+    line-height: 0.90;
 }
 
+
+/* Saudade + Moi */
 
 .title-word {
 
@@ -282,140 +375,183 @@ body {
         Georgia,
         serif;
 
-    font-size: 49px;
+    font-size: 57px;
 
     font-weight: 400;
 
-    letter-spacing: -1.5px;
+    letter-spacing: -1.7px;
 
     background:
+
         linear-gradient(
             90deg,
-            #e69a32 0%,
-            #ffc35b 24%,
-            #fff3b5 50%,
-            #ffd776 74%,
-            #e69a32 100%
+
+            #d98a25 0%,
+
+            #f1ae3c 19%,
+
+            #ffd66f 38%,
+
+            #fff2ae 50%,
+
+            #ffd66f 63%,
+
+            #f1ae3c 81%,
+
+            #d98a25 100%
         );
 
     -webkit-background-clip: text;
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
-
     color: transparent;
 
     filter:
+
         drop-shadow(
-            0 0 3px
-            rgba(255, 185, 60, 0.12)
+            0 0 2px
+            rgba(255, 190, 72, 0.20)
         );
 }
 
 
-/* & CALLIGRAPHIÉ */
+/* grand & manuscrit */
 
 .ampersand {
 
     display: inline-block;
 
     margin:
-        -5px
-        8px
+        -8px
+        10px
         0
-        7px;
+        9px;
 
     font-family:
         "Parisienne",
         cursive;
 
-    font-size: 68px;
+    font-size: 79px;
 
     font-weight: 400;
 
-    line-height: 0.75;
+    line-height: 0.72;
 
     background:
+
         linear-gradient(
             180deg,
-            #fffbe2 0%,
-            #fff2b0 42%,
-            #efb446 100%
+
+            #fffde9 0%,
+
+            #fff3b4 35%,
+
+            #f5c35a 68%,
+
+            #dc9028 100%
         );
 
     -webkit-background-clip: text;
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
-
     color: transparent;
 
     transform:
-        translateY(5px);
+        translateY(6px);
+
+    filter:
+
+        drop-shadow(
+            0 0 3px
+            rgba(255, 210, 103, 0.15)
+        );
 }
 
 
-/* ==========================================================
-   TRAITS + COEUR
-   ========================================================== */
+/* =========================================================
+   ORNEMENT SOUS LE TITRE
+   ========================================================= */
 
 .ornament {
 
-    display: flex;
+    position: relative;
+    z-index: 2;
 
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    gap: 12px;
+    gap: 14px;
 
     margin:
-        15px
+        18px
         auto
-        11px;
+        13px;
 }
 
+
+/* traits dorés */
 
 .line {
 
-    width: 105px;
+    width: 132px;
     height: 1px;
 
     background:
+
         linear-gradient(
             90deg,
-            #d99a31,
-            #fff1a3,
-            #d99a31
+
+            rgba(196, 119, 31, 0.25),
+
+            #df9e32 20%,
+
+            #fff0a2 50%,
+
+            #df9e32 80%,
+
+            rgba(196, 119, 31, 0.25)
         );
 
     box-shadow:
+
         0 0 4px
-        rgba(255, 185, 54, 0.20);
+        rgba(255, 181, 54, 0.16);
 }
 
 
-/* COEUR */
+/* =========================================================
+   PETIT CŒUR
+   ========================================================= */
 
 .heart {
 
     position: relative;
 
-    width: 35px;
-    height: 27px;
+    width: 34px;
+    height: 29px;
 
     transform:
         rotate(-45deg);
 
     border-left:
-        2px solid #f5d86e;
+        1.7px solid #f3d873;
 
     border-bottom:
-        2px solid #f5d86e;
+        1.7px solid #f3d873;
 
     border-radius:
         2px 0 3px 0;
-}
 
+    filter:
+
+        drop-shadow(
+            0 0 2px
+            rgba(255, 203, 81, 0.20)
+        );
+}
 
 .heart::before,
 .heart::after {
@@ -425,24 +561,22 @@ body {
     position: absolute;
 
     border:
-        2px solid #f5d86e;
+        1.7px solid #f3d873;
 
     border-radius: 50%;
 }
-
 
 .heart::before {
 
     width: 18px;
     height: 24px;
 
-    left: -2px;
+    left: -1.7px;
     top: -13px;
 
     border-bottom-color:
         transparent;
 }
-
 
 .heart::after {
 
@@ -457,14 +591,47 @@ body {
 }
 
 
-/* ==========================================================
+/* =========================================================
    TEXTES
-   ========================================================== */
+   ========================================================= */
 
 .subtitle {
 
+    position: relative;
+    z-index: 2;
+
     margin:
-        0 0 4px;
+        0
+        0
+        5px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 23px;
+
+    font-style: italic;
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    color: #eed5ec;
+
+    text-shadow:
+
+        0 1px 5px
+        rgba(0, 0, 0, 0.90);
+}
+
+
+.description {
+
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
 
     font-family:
         "Cormorant Garamond",
@@ -474,54 +641,32 @@ body {
     font-size: 21px;
 
     font-style: italic;
-
     font-weight: 400;
 
     line-height: 1.15;
 
-    color: #edcfeb;
+    color: #ead4e7;
 
     text-shadow:
-        0 1px 4px
-        rgba(0, 0, 0, 0.8);
+
+        0 1px 5px
+        rgba(0, 0, 0, 0.90);
 }
 
 
-.description {
-
-    margin: 0;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 20px;
-
-    font-style: italic;
-
-    font-weight: 400;
-
-    line-height: 1.15;
-
-    color: #f0d9ee;
-
-    text-shadow:
-        0 1px 4px
-        rgba(0, 0, 0, 0.8);
-}
-
-
-/* ==========================================================
+/* =========================================================
    SPOTIFY
-   ========================================================== */
+   ========================================================= */
 
 .music-player {
+
+    position: relative;
+    z-index: 2;
 
     width: 100%;
 
     margin:
-        17px
+        20px
         auto
         0;
 }
@@ -533,218 +678,221 @@ body {
 
     width: 100%;
 
-    height: 80px;
+    height: 152px;
 
     border: 0;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
     box-shadow:
-        0 7px 20px
-        rgba(0, 0, 0, 0.48);
+
+        0 8px 25px
+        rgba(0, 0, 0, 0.55);
 }
 
 
-/* ==========================================================
-   TABLETTES / PETITS ÉCRANS
-   ========================================================== */
+/* =========================================================
+   TABLETTES / PETITS ORDINATEURS
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
 
     body {
 
-        background-attachment: scroll;
+        background-attachment:
+            scroll;
     }
-
 
     .card {
 
-        width: 92vw;
-
-        max-width: 560px;
+        width: min(680px, 91vw);
 
         padding:
-            25px
-            25px
-            23px;
+            31px
+            38px
+            28px;
     }
-
 
     .title-word {
 
-        font-size: 44px;
+        font-size: 52px;
     }
-
 
     .ampersand {
 
-        font-size: 62px;
+        font-size: 73px;
     }
-
 
     .line {
 
-        width: 90px;
+        width: 115px;
     }
 }
 
 
-/* ==========================================================
+/* =========================================================
    TÉLÉPHONE
-   ========================================================== */
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
     body {
 
         padding:
-            15px
+            18px
             10px;
 
         background-position:
             center center;
     }
 
-
     .card {
 
         width: 92vw;
 
-        max-width: 390px;
-
         padding:
-            24px
-            17px
-            20px;
+            27px
+            20px
+            22px;
 
-        border-radius: 18px;
+        border-radius:
+            18px;
     }
-
 
     .title-word {
 
-        font-size: 36px;
+        font-size:
+            clamp(34px, 10.2vw, 45px);
 
-        letter-spacing: -1px;
+        letter-spacing:
+            -1px;
     }
-
 
     .ampersand {
 
         margin:
-            -3px
-            5px
+            -5px
+            6px
             0;
 
-        font-size: 52px;
+        font-size:
+            clamp(52px, 14vw, 65px);
 
         transform:
-            translateY(4px);
+            translateY(5px);
     }
-
 
     .ornament {
 
-        gap: 10px;
+        gap: 11px;
 
         margin:
-            15px
+            17px
             auto
-            11px;
+            12px;
     }
-
 
     .line {
 
-        width: 68px;
+        width:
+            clamp(64px, 21vw, 95px);
     }
-
 
     .heart {
 
         transform:
             rotate(-45deg)
-            scale(0.80);
+            scale(0.84);
 
         margin:
-            -3px
+            -2px
             -3px;
     }
 
-
     .subtitle {
 
-        font-size: 18px;
-
-        margin-bottom: 4px;
+        font-size:
+            19px;
     }
-
 
     .description {
 
-        font-size: 17px;
+        font-size:
+            18px;
 
-        line-height: 1.18;
+        line-height:
+            1.17;
     }
-
 
     .music-player {
 
-        margin-top: 15px;
+        margin-top:
+            17px;
     }
-
 
     .music-player iframe {
 
-        height: 80px;
+        height:
+            152px;
 
-        border-radius: 11px;
+        border-radius:
+            11px;
     }
 }
 
 
-/* ==========================================================
-   TRÈS PETITS TÉLÉPHONES
-   ========================================================== */
+/* =========================================================
+   TRÈS PETIT TÉLÉPHONE
+   ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
 
     .card {
 
-        width: 94vw;
+        width:
+            94vw;
 
-        padding-left: 13px;
-        padding-right: 13px;
+        padding-left:
+            15px;
+
+        padding-right:
+            15px;
     }
-
 
     .title-word {
 
-        font-size: 32px;
+        font-size:
+            33px;
     }
-
 
     .ampersand {
 
-        font-size: 47px;
-    }
+        font-size:
+            49px;
 
+        margin-left:
+            4px;
+
+        margin-right:
+            4px;
+    }
 
     .line {
 
-        width: 55px;
+        width:
+            58px;
     }
-
 
     .subtitle {
 
-        font-size: 17px;
+        font-size:
+            18px;
     }
-
 
     .description {
 
-        font-size: 16px;
+        font-size:
+            17px;
     }
 }
 
@@ -759,23 +907,23 @@ body {
 <div class="card">
 
 
-    <!-- 8 ÉCLATS LUMINEUX -->
+    <!-- Lumière douce dans les quatre coins -->
 
-    <div class="spark spark-top"></div>
+    <span class="corner-glow corner-tl"></span>
+    <span class="corner-glow corner-tr"></span>
+    <span class="corner-glow corner-bl"></span>
+    <span class="corner-glow corner-br"></span>
 
-    <div class="spark spark-bottom"></div>
 
-    <div class="spark spark-left"></div>
+    <!--
+        Les quatre véritables éclats lumineux
+        visibles sur ton image de référence
+    -->
 
-    <div class="spark spark-right"></div>
-
-    <div class="spark spark-top-left"></div>
-
-    <div class="spark spark-top-right"></div>
-
-    <div class="spark spark-bottom-left"></div>
-
-    <div class="spark spark-bottom-right"></div>
+    <span class="spark spark-top"></span>
+    <span class="spark spark-bottom"></span>
+    <span class="spark spark-left"></span>
+    <span class="spark spark-right"></span>
 
 
     <!-- TITRE -->
@@ -797,7 +945,7 @@ body {
     </h1>
 
 
-    <!-- COEUR + TRAITS -->
+    <!-- CŒUR + TRAITS -->
 
     <div class="ornament">
 
@@ -810,26 +958,29 @@ body {
     </div>
 
 
-    <!-- TEXTE -->
+    <!-- TEXTES -->
 
     <p class="subtitle">
         Un peu de moi, un peu de nous…
     </p>
-
 
     <p class="description">
         Où chaque souvenir se prolonge en musique
     </p>
 
 
-    <!-- VRAI LECTEUR SPOTIFY -->
+    <!-- SPOTIFY -->
 
     <div class="music-player">
 
         <iframe
+
             src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator&theme=0"
+
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+
             loading="lazy">
+
         </iframe>
 
     </div>
