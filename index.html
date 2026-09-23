@@ -141,12 +141,12 @@ body {
    ========================================================= */
 
 .spark {
-  position: absolute;
+ position: absolute;
     z-index: 5;
     pointer-events: none;
 
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
 
     border-radius: 50%;
 
@@ -154,9 +154,63 @@ body {
 
     box-shadow:
         0 0 2px 1px #ffffff,
-        0 0 5px 2px #fff5c4,
-        0 0 10px 3px #ffc34d,
-        0 0 18px 5px rgba(255, 145, 25, 0.80);  
+        0 0 5px 2px #fff2b0,
+        0 0 9px 3px rgba(255, 184, 55, 0.80),
+        0 0 15px 4px rgba(255, 132, 20, 0.35);
+}
+
+/* petite étoile horizontale */
+
+.spark::before {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 1px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 191, 70, 0.20),
+        #fff8d2,
+        #ffffff,
+        #fff8d2,
+        rgba(255, 191, 70, 0.20),
+        transparent
+    );
+}
+
+/* petite étoile verticale */
+
+.spark::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 12px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(255, 191, 70, 0.15),
+        #fff8d2,
+        #ffffff,
+        #fff8d2,
+        rgba(255, 191, 70, 0.15),
+        transparent
+    ); 
 }
 
 .spark-top {
