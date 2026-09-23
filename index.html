@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,9 +16,9 @@
 
 <style>
 
-/* =========================================================
+/* ==========================================================
    PAGE
-   ========================================================= */
+   ========================================================== */
 
 * {
     box-sizing: border-box;
@@ -31,6 +32,7 @@ body {
 }
 
 body {
+
     min-height: 100vh;
     min-height: 100svh;
 
@@ -38,9 +40,9 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 25px 15px;
-
     overflow-x: hidden;
+
+    padding: 25px 15px;
 
     text-align: center;
     color: white;
@@ -54,11 +56,12 @@ body {
 }
 
 
-/* =========================================================
+/* ==========================================================
    CADRE PRINCIPAL
-   ========================================================= */
+   ========================================================== */
 
 .card {
+
     position: relative;
 
     width: 620px;
@@ -79,70 +82,23 @@ body {
 
     box-shadow:
         0 0 2px rgba(255, 239, 190, 0.85),
-    0 0 6px rgba(255, 181, 55, 0.55),
-    0 0 14px rgba(255, 137, 25, 0.25),
-    inset 0 0 10px rgba(255, 177, 45, 0.08),
-    0 12px 35px rgba(0, 0, 0, 0.65);
+        0 0 6px rgba(255, 181, 55, 0.55),
+        0 0 14px rgba(255, 137, 25, 0.25),
+        inset 0 0 10px rgba(255, 177, 45, 0.08),
+        0 12px 35px rgba(0, 0, 0, 0.65);
 }
 
 
-/* PETIT ÉCLAT EN HAUT */
-
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    top: -2px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 48px;
-    height: 2px;
-
-    border-radius: 50%;
-
-    background: #fff1ba;
-
-    box-shadow:
-        0 0 6px #fff4c7,
-        0 0 12px #ffc755,
-        0 0 20px #ff9c20;
-}
-
-
-/* PETIT ÉCLAT EN BAS */
-
-.card::after {
-    content: "";
-
-    position: absolute;
-
-    bottom: -2px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 43px;
-    height: 2px;
-
-    border-radius: 50%;
-
-    background: #ffe9a1;
-
-    box-shadow:
-        0 0 6px #fff1b5,
-        0 0 12px #ffbd45,
-        0 0 20px #ff921b;
-}
-/* =========================================================
+/* ==========================================================
    ÉCLATS LUMINEUX DU CADRE
-   ========================================================= */
+   ========================================================== */
 
 .spark {
- position: absolute;
+
+    position: absolute;
+
     z-index: 5;
+
     pointer-events: none;
 
     width: 2px;
@@ -159,9 +115,11 @@ body {
         0 0 15px 4px rgba(255, 132, 20, 0.35);
 }
 
-/* petite étoile horizontale */
+
+/* trait horizontal de l'étoile */
 
 .spark::before {
+
     content: "";
 
     position: absolute;
@@ -174,21 +132,24 @@ body {
 
     transform: translate(-50%, -50%);
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 191, 70, 0.20),
-        #fff8d2,
-        #ffffff,
-        #fff8d2,
-        rgba(255, 191, 70, 0.20),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 191, 70, 0.20),
+            #fff8d2,
+            #ffffff,
+            #fff8d2,
+            rgba(255, 191, 70, 0.20),
+            transparent
+        );
 }
 
-/* petite étoile verticale */
+
+/* trait vertical de l'étoile */
 
 .spark::after {
+
     content: "";
 
     position: absolute;
@@ -201,70 +162,110 @@ body {
 
     transform: translate(-50%, -50%);
 
-    background: linear-gradient(
-        180deg,
-        transparent,
-        rgba(255, 191, 70, 0.15),
-        #fff8d2,
-        #ffffff,
-        #fff8d2,
-        rgba(255, 191, 70, 0.15),
-        transparent
-    ); 
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(255, 191, 70, 0.15),
+            #fff8d2,
+            #ffffff,
+            #fff8d2,
+            rgba(255, 191, 70, 0.15),
+            transparent
+        );
 }
+
+
+/* MILIEU HAUT */
 
 .spark-top {
-    top: -3px;
+
+    top: -1px;
     left: 50%;
+
     transform: translateX(-50%);
 }
+
+
+/* MILIEU BAS */
 
 .spark-bottom {
-    bottom: -3px;
+
+    bottom: -1px;
     left: 50%;
+
     transform: translateX(-50%);
 }
 
+
+/* MILIEU GAUCHE */
+
 .spark-left {
-    left: -3px;
+
+    left: -1px;
     top: 50%;
+
     transform: translateY(-50%);
 }
+
+
+/* MILIEU DROITE */
 
 .spark-right {
-    right: -3px;
+
+    right: -1px;
     top: 50%;
+
     transform: translateY(-50%);
 }
 
+
+/* COIN HAUT GAUCHE */
+
 .spark-top-left {
+
     top: 11px;
     left: 7px;
 }
+
+
+/* COIN HAUT DROIT */
 
 .spark-top-right {
+
     top: 11px;
     right: 7px;
 }
 
+
+/* COIN BAS GAUCHE */
+
 .spark-bottom-left {
+
     bottom: 11px;
     left: 7px;
 }
 
+
+/* COIN BAS DROIT */
+
 .spark-bottom-right {
+
     bottom: 11px;
     right: 7px;
 }
 
-/* =========================================================
+
+/* ==========================================================
    TITRE
-   ========================================================= */
+   ========================================================== */
 
 .title {
+
     margin: 0;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -274,12 +275,15 @@ body {
 }
 
 
-/* SAUDADE + MOI */
-
 .title-word {
-    font-family: "Italiana", Georgia, serif;
+
+    font-family:
+        "Italiana",
+        Georgia,
+        serif;
 
     font-size: 49px;
+
     font-weight: 400;
 
     letter-spacing: -1.5px;
@@ -302,20 +306,31 @@ body {
     color: transparent;
 
     filter:
-        drop-shadow(0 0 3px rgba(255, 185, 60, 0.12));
+        drop-shadow(
+            0 0 3px
+            rgba(255, 185, 60, 0.12)
+        );
 }
 
 
 /* & CALLIGRAPHIÉ */
 
 .ampersand {
+
     display: inline-block;
 
-    margin: -5px 8px 0 7px;
+    margin:
+        -5px
+        8px
+        0
+        7px;
 
-    font-family: "Parisienne", cursive;
+    font-family:
+        "Parisienne",
+        cursive;
 
     font-size: 68px;
+
     font-weight: 400;
 
     line-height: 0.75;
@@ -335,15 +350,17 @@ body {
 
     color: transparent;
 
-    transform: translateY(5px);
+    transform:
+        translateY(5px);
 }
 
 
-/* =========================================================
+/* ==========================================================
    TRAITS + COEUR
-   ========================================================= */
+   ========================================================== */
 
 .ornament {
+
     display: flex;
 
     justify-content: center;
@@ -351,11 +368,15 @@ body {
 
     gap: 12px;
 
-    margin: 15px auto 11px;
+    margin:
+        15px
+        auto
+        11px;
 }
 
 
 .line {
+
     width: 105px;
     height: 1px;
 
@@ -368,67 +389,82 @@ body {
         );
 
     box-shadow:
-        0 0 4px rgba(255, 185, 54, 0.20);
+        0 0 4px
+        rgba(255, 185, 54, 0.20);
 }
 
 
 /* COEUR */
 
 .heart {
+
     position: relative;
 
     width: 35px;
     height: 27px;
 
-    transform: rotate(-45deg);
+    transform:
+        rotate(-45deg);
 
-    border-left: 2px solid #f5d86e;
-    border-bottom: 2px solid #f5d86e;
+    border-left:
+        2px solid #f5d86e;
 
-    border-radius: 2px 0 3px 0;
+    border-bottom:
+        2px solid #f5d86e;
+
+    border-radius:
+        2px 0 3px 0;
 }
 
 
 .heart::before,
 .heart::after {
+
     content: "";
 
     position: absolute;
 
-    border: 2px solid #f5d86e;
+    border:
+        2px solid #f5d86e;
 
     border-radius: 50%;
 }
 
 
 .heart::before {
+
     width: 18px;
     height: 24px;
 
     left: -2px;
     top: -13px;
 
-    border-bottom-color: transparent;
+    border-bottom-color:
+        transparent;
 }
 
 
 .heart::after {
+
     width: 24px;
     height: 18px;
 
     left: 8px;
     top: 6px;
 
-    border-left-color: transparent;
+    border-left-color:
+        transparent;
 }
 
 
-/* =========================================================
+/* ==========================================================
    TEXTES
-   ========================================================= */
+   ========================================================== */
 
 .subtitle {
-    margin: 0 0 4px;
+
+    margin:
+        0 0 4px;
 
     font-family:
         "Cormorant Garamond",
@@ -438,6 +474,7 @@ body {
     font-size: 21px;
 
     font-style: italic;
+
     font-weight: 400;
 
     line-height: 1.15;
@@ -445,11 +482,13 @@ body {
     color: #edcfeb;
 
     text-shadow:
-        0 1px 4px rgba(0, 0, 0, 0.8);
+        0 1px 4px
+        rgba(0, 0, 0, 0.8);
 }
 
 
 .description {
+
     margin: 0;
 
     font-family:
@@ -460,6 +499,7 @@ body {
     font-size: 20px;
 
     font-style: italic;
+
     font-weight: 400;
 
     line-height: 1.15;
@@ -467,25 +507,32 @@ body {
     color: #f0d9ee;
 
     text-shadow:
-        0 1px 4px rgba(0, 0, 0, 0.8);
+        0 1px 4px
+        rgba(0, 0, 0, 0.8);
 }
 
 
-/* =========================================================
+/* ==========================================================
    SPOTIFY
-   ========================================================= */
+   ========================================================== */
 
 .music-player {
+
     width: 100%;
 
-    margin: 17px auto 0;
+    margin:
+        17px
+        auto
+        0;
 }
 
 
 .music-player iframe {
+
     display: block;
 
     width: 100%;
+
     height: 80px;
 
     border: 0;
@@ -493,65 +540,89 @@ body {
     border-radius: 11px;
 
     box-shadow:
-        0 7px 20px rgba(0, 0, 0, 0.48);
+        0 7px 20px
+        rgba(0, 0, 0, 0.48);
 }
 
 
-/* =========================================================
+/* ==========================================================
    TABLETTES / PETITS ÉCRANS
-   ========================================================= */
+   ========================================================== */
 
 @media (max-width: 700px) {
 
     body {
+
         background-attachment: scroll;
     }
 
+
     .card {
+
         width: 92vw;
+
         max-width: 560px;
 
-        padding: 25px 25px 23px;
+        padding:
+            25px
+            25px
+            23px;
     }
 
+
     .title-word {
+
         font-size: 44px;
     }
 
+
     .ampersand {
+
         font-size: 62px;
     }
 
+
     .line {
+
         width: 90px;
     }
 }
 
 
-/* =========================================================
+/* ==========================================================
    TÉLÉPHONE
-   ========================================================= */
+   ========================================================== */
 
 @media (max-width: 480px) {
 
     body {
-        padding: 15px 10px;
 
-        background-position: center center;
+        padding:
+            15px
+            10px;
+
+        background-position:
+            center center;
     }
 
 
     .card {
+
         width: 92vw;
+
         max-width: 390px;
 
-        padding: 24px 17px 20px;
+        padding:
+            24px
+            17px
+            20px;
 
         border-radius: 18px;
     }
 
 
     .title-word {
+
         font-size: 36px;
 
         letter-spacing: -1px;
@@ -559,36 +630,50 @@ body {
 
 
     .ampersand {
-        margin: -3px 5px 0;
+
+        margin:
+            -3px
+            5px
+            0;
 
         font-size: 52px;
 
-        transform: translateY(4px);
+        transform:
+            translateY(4px);
     }
 
 
     .ornament {
+
         gap: 10px;
 
-        margin: 15px auto 11px;
+        margin:
+            15px
+            auto
+            11px;
     }
 
 
     .line {
+
         width: 68px;
     }
 
 
     .heart {
+
         transform:
             rotate(-45deg)
             scale(0.80);
 
-        margin: -3px -3px;
+        margin:
+            -3px
+            -3px;
     }
 
 
     .subtitle {
+
         font-size: 18px;
 
         margin-bottom: 4px;
@@ -596,6 +681,7 @@ body {
 
 
     .description {
+
         font-size: 17px;
 
         line-height: 1.18;
@@ -603,11 +689,13 @@ body {
 
 
     .music-player {
+
         margin-top: 15px;
     }
 
 
     .music-player iframe {
+
         height: 80px;
 
         border-radius: 11px;
@@ -615,13 +703,14 @@ body {
 }
 
 
-/* =========================================================
+/* ==========================================================
    TRÈS PETITS TÉLÉPHONES
-   ========================================================= */
+   ========================================================== */
 
 @media (max-width: 360px) {
 
     .card {
+
         width: 94vw;
 
         padding-left: 13px;
@@ -630,26 +719,31 @@ body {
 
 
     .title-word {
+
         font-size: 32px;
     }
 
 
     .ampersand {
+
         font-size: 47px;
     }
 
 
     .line {
+
         width: 55px;
     }
 
 
     .subtitle {
+
         font-size: 17px;
     }
 
 
     .description {
+
         font-size: 16px;
     }
 }
@@ -661,15 +755,26 @@ body {
 
 <body>
 
+
 <div class="card">
+
+
+    <!-- 8 ÉCLATS LUMINEUX -->
+
     <div class="spark spark-top"></div>
+
     <div class="spark spark-bottom"></div>
+
     <div class="spark spark-left"></div>
+
     <div class="spark spark-right"></div>
 
     <div class="spark spark-top-left"></div>
+
     <div class="spark spark-top-right"></div>
+
     <div class="spark spark-bottom-left"></div>
+
     <div class="spark spark-bottom-right"></div>
 
 
@@ -717,7 +822,7 @@ body {
     </p>
 
 
-    <!-- LECTEUR SPOTIFY -->
+    <!-- VRAI LECTEUR SPOTIFY -->
 
     <div class="music-player">
 
@@ -731,6 +836,7 @@ body {
 
 
 </div>
+
 
 </body>
 
