@@ -9,11 +9,16 @@
 
 <style>
 
+/* =========================================================
+   RÉGLAGES GÉNÉRAUX
+   ========================================================= */
+
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     width: 100%;
     min-height: 100%;
@@ -26,143 +31,493 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 30px 15px;
+    padding: 35px 20px;
 
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
     text-align: center;
     color: white;
 
-    /* TON FOND */
     background-image: url("./fond.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: #080509;
+    background-color: #070407;
 }
 
 
-/* ---------- RECTANGLE ---------- */
+/* =========================================================
+   GRAND CADRE CENTRAL
+   ========================================================= */
 
 .card {
-    width: 520px;
-    max-width: 88vw;
+    position: relative;
 
-    margin: 0 auto;
-    padding: 28px 32px 25px;
+    width: 955px;
+    max-width: 92vw;
 
-    border-radius: 20px;
+    padding: 48px 58px 40px;
 
-    background: rgba(10, 6, 11, 0.88);
+    border-radius: 30px;
 
-    border: 1px solid rgba(236, 188, 84, 0.85);
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(30, 17, 12, 0.38) 0%,
+            rgba(10, 5, 8, 0.88) 72%
+        );
+
+    border: 1.5px solid rgba(245, 190, 76, 0.95);
 
     box-shadow:
-        0 0 8px rgba(255, 198, 83, 0.40),
-        0 15px 40px rgba(0, 0, 0, 0.65);
+        0 0 5px rgba(255, 215, 120, 0.90),
+        0 0 15px rgba(255, 176, 55, 0.42),
+        0 0 35px rgba(255, 150, 35, 0.15),
+        inset 0 0 22px rgba(255, 173, 56, 0.09),
+        0 22px 55px rgba(0, 0, 0, 0.70);
+
+    overflow: hidden;
 }
 
 
-/* ---------- TITRE ---------- */
+/* Petit éclat doré en haut du cadre */
 
-h1 {
-    margin: 0 0 18px;
+.card::before {
+    content: "";
 
-    font-size: 40px;
+    position: absolute;
+
+    top: -2px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 75px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 222, 142, 0.95);
+
+    box-shadow:
+        0 0 8px #fff0ba,
+        0 0 16px #ffc85a,
+        0 0 30px #ff9e22;
+}
+
+
+/* Petit éclat doré en bas du cadre */
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -2px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 65px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 220, 125, 0.90);
+
+    box-shadow:
+        0 0 8px #ffe3a0,
+        0 0 17px #ffbd45,
+        0 0 28px #ff941c;
+}
+
+
+/* =========================================================
+   TITRE
+   ========================================================= */
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+
+    white-space: nowrap;
+
+    line-height: 1;
+}
+
+
+/* Saudade et Moi */
+
+.title-word {
+    font-size: 76px;
     font-weight: normal;
-    letter-spacing: 3px;
+    letter-spacing: -2px;
 
-    color: #f0c765;
+    background: linear-gradient(
+        90deg,
+        #e79b31 0%,
+        #ffc65d 22%,
+        #fff3bc 50%,
+        #ffd36f 73%,
+        #e49a31 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 0 14px rgba(255, 194, 75, 0.08);
 }
 
 
-/* ---------- SOUS-TITRE ---------- */
+/* Le & séparé pour lui donner un aspect plus fin */
+
+.ampersand {
+    display: inline-block;
+
+    margin: 0 15px 0 12px;
+
+    font-family:
+        "Palace Script MT",
+        "Edwardian Script ITC",
+        "Segoe Script",
+        cursive;
+
+    font-size: 104px;
+    font-weight: 300;
+    line-height: 0.72;
+
+    transform: translateY(7px);
+
+    background: linear-gradient(
+        180deg,
+        #fff8d2 0%,
+        #ffd66d 55%,
+        #e7a23a 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   TRAITS + COEUR
+   ========================================================= */
+
+.decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 24px auto 19px;
+
+    gap: 20px;
+}
+
+.gold-line {
+    width: 190px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #e8a73a 18%,
+        #fff1a8 50%,
+        #e8a73a 82%,
+        transparent 100%
+    );
+
+    box-shadow:
+        0 0 5px rgba(255, 193, 70, 0.30);
+}
+
+.heart {
+    position: relative;
+
+    width: 45px;
+    height: 39px;
+}
+
+.heart::before {
+    content: "♡";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -54%);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 49px;
+    font-weight: 300;
+
+    color: #f5d66f;
+
+    text-shadow:
+        0 0 7px rgba(255, 201, 77, 0.18);
+}
+
+
+/* =========================================================
+   TEXTES
+   ========================================================= */
 
 .subtitle {
     margin: 0 0 10px;
 
-    font-size: 19px;
+    font-size: 31px;
+    font-weight: normal;
     font-style: italic;
 
-    color: #e6c5e7;
+    line-height: 1.25;
+
+    color: #e9c7e7;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.65);
 }
 
-
-/* ---------- TEXTE ---------- */
-
-.card p:not(.subtitle) {
+.description {
     margin: 0;
 
-    font-size: 17px;
-    line-height: 1.4;
+    font-size: 29px;
+    font-weight: normal;
+    font-style: italic;
 
-    color: #ead8ed;
+    line-height: 1.3;
+
+    color: #ecd8eb;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.65);
 }
 
 
-/* ---------- SPOTIFY ---------- */
+/* =========================================================
+   SPOTIFY
+   ========================================================= */
 
 .music-player {
-    margin-top: 22px;
+    width: 100%;
+
+    margin: 29px auto 0;
 }
 
-iframe {
+.music-player iframe {
     display: block;
 
     width: 100%;
     height: 152px;
 
     border: 0;
-    border-radius: 12px;
+    border-radius: 17px;
+
+    box-shadow:
+        0 7px 22px rgba(0, 0, 0, 0.45);
 }
 
 
-/* ---------- TÉLÉPHONE ---------- */
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .card {
+        width: 92vw;
+
+        padding: 42px 38px 35px;
+    }
+
+    .title-word {
+        font-size: 62px;
+    }
+
+    .ampersand {
+        font-size: 86px;
+        margin-left: 10px;
+        margin-right: 12px;
+    }
+
+    .gold-line {
+        width: 150px;
+    }
+
+    .subtitle {
+        font-size: 27px;
+    }
+
+    .description {
+        font-size: 25px;
+    }
+}
+
+
+/* =========================================================
+   TÉLÉPHONE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     body {
-        padding: 20px 10px;
+        min-height: 100svh;
+
+        padding: 18px 10px;
+
         background-position: center center;
     }
 
     .card {
-        width: 88vw;
-        max-width: 360px;
+        width: 92vw;
+        max-width: 390px;
 
-        padding: 24px 18px 20px;
+        padding: 29px 17px 22px;
+
+        border-radius: 22px;
     }
 
-    h1 {
-        font-size: 31px;
-        letter-spacing: 2px;
+    .title-word {
+        font-size: 37px;
+        letter-spacing: -1px;
+    }
+
+    .ampersand {
+        margin: 0 6px;
+
+        font-size: 55px;
+
+        transform: translateY(4px);
+    }
+
+    .decoration {
+        gap: 10px;
+
+        margin: 18px auto 15px;
+    }
+
+    .gold-line {
+        width: 78px;
+        height: 1px;
+    }
+
+    .heart {
+        width: 31px;
+        height: 29px;
+    }
+
+    .heart::before {
+        font-size: 34px;
     }
 
     .subtitle {
-        font-size: 17px;
+        margin-bottom: 8px;
+
+        font-size: 19px;
     }
 
-    .card p:not(.subtitle) {
-        font-size: 15px;
+    .description {
+        font-size: 17px;
+        line-height: 1.35;
+    }
+
+    .music-player {
+        margin-top: 22px;
+    }
+
+    .music-player iframe {
+        height: 152px;
+
+        border-radius: 13px;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+    .card {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .title-word {
+        font-size: 33px;
+    }
+
+    .ampersand {
+        font-size: 48px;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+
+    .gold-line {
+        width: 62px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 16px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
 <div class="card">
 
-    <h1>Saudade & Moi</h1>
+    <!-- GRAND TITRE -->
+    <h1 class="title">
 
+        <span class="title-word">Saudade</span>
+
+        <span class="ampersand">&amp;</span>
+
+        <span class="title-word">Moi</span>
+
+    </h1>
+
+
+    <!-- TRAITS DORÉS + COEUR -->
+    <div class="decoration">
+
+        <span class="gold-line"></span>
+
+        <span class="heart"></span>
+
+        <span class="gold-line"></span>
+
+    </div>
+
+
+    <!-- TEXTES -->
     <p class="subtitle">
         Un peu de moi, un peu de nous…
     </p>
 
-    <p>
+    <p class="description">
         Où chaque souvenir se prolonge en musique
     </p>
 
+
+    <!-- VRAI LECTEUR SPOTIFY -->
     <div class="music-player">
 
         <iframe
@@ -176,4 +531,5 @@ iframe {
 </div>
 
 </body>
+
 </html>
