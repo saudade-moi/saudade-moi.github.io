@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,9 +15,9 @@
 
 <style>
 
-/* ==========================================================
+/* =========================================================
    PAGE
-   ========================================================== */
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -32,7 +31,6 @@ body {
 }
 
 body {
-
     min-height: 100vh;
     min-height: 100svh;
 
@@ -40,12 +38,11 @@ body {
     justify-content: center;
     align-items: center;
 
+    padding: 25px 15px;
+
     overflow-x: hidden;
 
-    padding: 4vh 20px;
-
     text-align: center;
-
     color: white;
 
     background:
@@ -57,52 +54,41 @@ body {
 }
 
 
-/* ==========================================================
+/* =========================================================
    CADRE PRINCIPAL
-   ========================================================== */
+   ========================================================= */
 
 .card {
-
     position: relative;
 
-    width: min(62vw, 955px);
+    width: 620px;
+    max-width: 90vw;
 
-    min-width: 760px;
+    padding: 27px 34px 25px;
 
-    padding:
-        clamp(30px, 3.4vh, 44px)
-        clamp(45px, 4vw, 62px)
-        clamp(30px, 3.6vh, 42px);
-
-    border-radius: 30px;
+    border-radius: 20px;
 
     background:
         radial-gradient(
-            ellipse at 50% 42%,
-            rgba(30, 17, 10, 0.28) 0%,
-            rgba(9, 4, 6, 0.91) 72%
+            ellipse at 50% 40%,
+            rgba(34, 18, 11, 0.20) 0%,
+            rgba(8, 3, 6, 0.88) 72%
         );
 
-    border: 1px solid rgba(255, 199, 83, 0.95);
+    border: 1px solid rgba(255, 190, 72, 0.95);
 
     box-shadow:
-
-        0 0 3px rgba(255, 236, 175, 0.95),
-
-        0 0 10px rgba(255, 180, 47, 0.62),
-
-        0 0 25px rgba(255, 145, 28, 0.24),
-
-        inset 0 0 24px rgba(255, 167, 37, 0.07),
-
-        0 20px 55px rgba(0, 0, 0, 0.72);
+        0 0 3px rgba(255, 236, 175, 0.90),
+        0 0 9px rgba(255, 174, 47, 0.55),
+        0 0 20px rgba(255, 132, 25, 0.20),
+        inset 0 0 18px rgba(255, 167, 37, 0.05),
+        0 12px 35px rgba(0, 0, 0, 0.65);
 }
 
 
-/* éclat haut */
+/* PETIT ÉCLAT EN HAUT */
 
 .card::before {
-
     content: "";
 
     position: absolute;
@@ -112,24 +98,23 @@ body {
 
     transform: translateX(-50%);
 
-    width: 72px;
-    height: 3px;
+    width: 48px;
+    height: 2px;
 
     border-radius: 50%;
 
     background: #fff1ba;
 
     box-shadow:
-        0 0 7px #fff4c7,
-        0 0 15px #ffc755,
-        0 0 27px #ff9c20;
+        0 0 6px #fff4c7,
+        0 0 12px #ffc755,
+        0 0 20px #ff9c20;
 }
 
 
-/* éclat bas */
+/* PETIT ÉCLAT EN BAS */
 
 .card::after {
-
     content: "";
 
     position: absolute;
@@ -139,26 +124,25 @@ body {
 
     transform: translateX(-50%);
 
-    width: 62px;
-    height: 3px;
+    width: 43px;
+    height: 2px;
 
     border-radius: 50%;
 
     background: #ffe9a1;
 
     box-shadow:
-        0 0 7px #fff1b5,
-        0 0 15px #ffbd45,
-        0 0 27px #ff921b;
+        0 0 6px #fff1b5,
+        0 0 12px #ffbd45,
+        0 0 20px #ff921b;
 }
 
 
-/* ==========================================================
+/* =========================================================
    TITRE
-   ========================================================== */
+   ========================================================= */
 
 .title {
-
     margin: 0;
 
     display: flex;
@@ -167,29 +151,27 @@ body {
 
     white-space: nowrap;
 
-    line-height: 0.95;
+    line-height: 0.92;
 }
 
 
-/* Saudade + Moi */
+/* SAUDADE + MOI */
 
 .title-word {
-
     font-family: "Italiana", Georgia, serif;
 
-    font-size: clamp(60px, 5.25vw, 81px);
-
+    font-size: 49px;
     font-weight: 400;
 
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
 
     background:
         linear-gradient(
             90deg,
-            #e8a036 0%,
-            #ffc35b 22%,
-            #fff6c7 50%,
-            #ffd776 72%,
+            #e69a32 0%,
+            #ffc35b 24%,
+            #fff3b5 50%,
+            #ffd776 74%,
             #e69a32 100%
         );
 
@@ -208,19 +190,13 @@ body {
 /* & CALLIGRAPHIÉ */
 
 .ampersand {
-
     display: inline-block;
 
-    margin:
-        -7px
-        12px
-        0
-        9px;
+    margin: -5px 8px 0 7px;
 
     font-family: "Parisienne", cursive;
 
-    font-size: clamp(88px, 7vw, 108px);
-
+    font-size: 68px;
     font-weight: 400;
 
     line-height: 0.75;
@@ -240,31 +216,29 @@ body {
 
     color: transparent;
 
-    transform: translateY(7px);
+    transform: translateY(5px);
 }
 
 
-/* ==========================================================
+/* =========================================================
    TRAITS + COEUR
-   ========================================================== */
+   ========================================================= */
 
 .ornament {
-
     display: flex;
 
     justify-content: center;
     align-items: center;
 
-    gap: 20px;
+    gap: 12px;
 
-    margin: 24px auto 16px;
+    margin: 15px auto 11px;
 }
 
 
 .line {
-
-    width: 188px;
-    height: 1.5px;
+    width: 105px;
+    height: 1px;
 
     background:
         linear-gradient(
@@ -275,82 +249,79 @@ body {
         );
 
     box-shadow:
-        0 0 5px rgba(255, 185, 54, 0.24);
+        0 0 4px rgba(255, 185, 54, 0.20);
 }
 
 
-.heart {
+/* COEUR */
 
+.heart {
     position: relative;
 
-    width: 49px;
-    height: 37px;
+    width: 35px;
+    height: 27px;
 
     transform: rotate(-45deg);
 
-    border-left: 3px solid #f5d86e;
-    border-bottom: 3px solid #f5d86e;
+    border-left: 2px solid #f5d86e;
+    border-bottom: 2px solid #f5d86e;
 
-    border-radius: 2px 0 4px 0;
+    border-radius: 2px 0 3px 0;
 }
 
 
 .heart::before,
 .heart::after {
-
     content: "";
 
     position: absolute;
 
-    border: 3px solid #f5d86e;
+    border: 2px solid #f5d86e;
 
     border-radius: 50%;
 }
 
 
 .heart::before {
+    width: 18px;
+    height: 24px;
 
-    width: 25px;
-    height: 34px;
-
-    left: -3px;
-    top: -19px;
+    left: -2px;
+    top: -13px;
 
     border-bottom-color: transparent;
 }
 
 
 .heart::after {
+    width: 24px;
+    height: 18px;
 
-    width: 34px;
-    height: 25px;
-
-    left: 11px;
-    top: 8px;
+    left: 8px;
+    top: 6px;
 
     border-left-color: transparent;
 }
 
 
-/* ==========================================================
+/* =========================================================
    TEXTES
-   ========================================================== */
+   ========================================================= */
 
 .subtitle {
-
-    margin: 0 0 7px;
+    margin: 0 0 4px;
 
     font-family:
         "Cormorant Garamond",
         Georgia,
         serif;
 
-    font-size: clamp(27px, 2.25vw, 35px);
+    font-size: 21px;
 
     font-style: italic;
     font-weight: 400;
 
-    line-height: 1.12;
+    line-height: 1.15;
 
     color: #edcfeb;
 
@@ -360,7 +331,6 @@ body {
 
 
 .description {
-
     margin: 0;
 
     font-family:
@@ -368,7 +338,7 @@ body {
         Georgia,
         serif;
 
-    font-size: clamp(26px, 2.15vw, 33px);
+    font-size: 20px;
 
     font-style: italic;
     font-weight: 400;
@@ -382,220 +352,186 @@ body {
 }
 
 
-/* ==========================================================
+/* =========================================================
    SPOTIFY
-   ========================================================== */
+   ========================================================= */
 
 .music-player {
-
     width: 100%;
 
-    margin: 28px auto 0;
+    margin: 17px auto 0;
 }
 
 
 .music-player iframe {
-
     display: block;
 
     width: 100%;
-
-    height: 152px;
+    height: 80px;
 
     border: 0;
 
-    border-radius: 18px;
+    border-radius: 11px;
 
     box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.50);
+        0 7px 20px rgba(0, 0, 0, 0.48);
 }
 
 
-/* ==========================================================
-   ÉCRANS INTERMÉDIAIRES
-   ========================================================== */
+/* =========================================================
+   TABLETTES / PETITS ÉCRANS
+   ========================================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 700px) {
+
+    body {
+        background-attachment: scroll;
+    }
 
     .card {
+        width: 92vw;
+        max-width: 560px;
 
-        width: 78vw;
-        min-width: 0;
-
-        padding:
-            38px
-            45px
-            34px;
+        padding: 25px 25px 23px;
     }
 
     .title-word {
-
-        font-size: 64px;
+        font-size: 44px;
     }
 
     .ampersand {
-
-        font-size: 90px;
+        font-size: 62px;
     }
 
-    .subtitle {
-
-        font-size: 28px;
-    }
-
-    .description {
-
-        font-size: 27px;
+    .line {
+        width: 90px;
     }
 }
 
 
-/* ==========================================================
+/* =========================================================
    TÉLÉPHONE
-   ========================================================== */
+   ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 
     body {
-
-        padding: 18px 10px;
-
-        background-attachment: scroll;
+        padding: 15px 10px;
 
         background-position: center center;
     }
 
 
     .card {
-
         width: 92vw;
-
-        min-width: 0;
         max-width: 390px;
 
-        padding:
-            29px
-            17px
-            22px;
+        padding: 24px 17px 20px;
 
-        border-radius: 22px;
+        border-radius: 18px;
     }
 
 
     .title-word {
-
-        font-size: 37px;
+        font-size: 36px;
 
         letter-spacing: -1px;
     }
 
 
     .ampersand {
+        margin: -3px 5px 0;
 
-        margin:
-            -3px
-            5px
-            0;
-
-        font-size: 55px;
+        font-size: 52px;
 
         transform: translateY(4px);
     }
 
 
     .ornament {
+        gap: 10px;
 
-        gap: 11px;
-
-        margin:
-            18px
-            auto
-            15px;
+        margin: 15px auto 11px;
     }
 
 
     .line {
-
-        width: 74px;
+        width: 68px;
     }
 
 
     .heart {
-
         transform:
             rotate(-45deg)
-            scale(0.70);
+            scale(0.80);
 
-        margin:
-            -5px
-            -5px;
+        margin: -3px -3px;
     }
 
 
     .subtitle {
+        font-size: 18px;
 
-        margin-bottom: 7px;
-
-        font-size: 20px;
+        margin-bottom: 4px;
     }
 
 
     .description {
+        font-size: 17px;
 
-        font-size: 19px;
-
-        line-height: 1.22;
+        line-height: 1.18;
     }
 
 
     .music-player {
-
-        margin-top: 21px;
+        margin-top: 15px;
     }
 
 
     .music-player iframe {
+        height: 80px;
 
-        height: 152px;
-
-        border-radius: 14px;
+        border-radius: 11px;
     }
 }
 
 
-/* ==========================================================
-   PETITS TÉLÉPHONES
-   ========================================================== */
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+   ========================================================= */
 
 @media (max-width: 360px) {
 
-    .title-word {
+    .card {
+        width: 94vw;
 
-        font-size: 33px;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+
+    .title-word {
+        font-size: 32px;
     }
 
 
     .ampersand {
-
-        font-size: 49px;
+        font-size: 47px;
     }
 
 
     .line {
-
-        width: 59px;
+        width: 55px;
     }
 
 
     .subtitle {
-
-        font-size: 18px;
+        font-size: 17px;
     }
 
 
     .description {
-
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 
@@ -605,7 +541,6 @@ body {
 
 
 <body>
-
 
 <div class="card">
 
@@ -654,7 +589,7 @@ body {
     </p>
 
 
-    <!-- VRAI LECTEUR SPOTIFY -->
+    <!-- LECTEUR SPOTIFY -->
 
     <div class="music-player">
 
@@ -668,7 +603,6 @@ body {
 
 
 </div>
-
 
 </body>
 
