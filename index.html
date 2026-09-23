@@ -137,7 +137,71 @@ body {
         0 0 12px #ffbd45,
         0 0 20px #ff921b;
 }
+/* =========================================================
+   ÉCLATS LUMINEUX DU CADRE
+   ========================================================= */
 
+.spark {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    background: #fff9d7;
+
+    box-shadow:
+        0 0 4px 2px #fff8cf,
+        0 0 9px 4px #ffc85b,
+        0 0 18px 7px rgba(255, 153, 30, 0.75),
+        0 0 30px 10px rgba(255, 111, 15, 0.28);
+}
+
+.spark-top {
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spark-bottom {
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spark-left {
+    left: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.spark-right {
+    right: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.spark-top-left {
+    top: 11px;
+    left: 7px;
+}
+
+.spark-top-right {
+    top: 11px;
+    right: 7px;
+}
+
+.spark-bottom-left {
+    bottom: 11px;
+    left: 7px;
+}
+
+.spark-bottom-right {
+    bottom: 11px;
+    right: 7px;
+}
 
 /* =========================================================
    TITRE
@@ -544,6 +608,15 @@ body {
 <body>
 
 <div class="card">
+    <div class="spark spark-top"></div>
+    <div class="spark spark-bottom"></div>
+    <div class="spark spark-left"></div>
+    <div class="spark spark-right"></div>
+
+    <div class="spark spark-top-left"></div>
+    <div class="spark spark-top-right"></div>
+    <div class="spark spark-bottom-left"></div>
+    <div class="spark spark-bottom-right"></div>
 
 
     <!-- TITRE -->
