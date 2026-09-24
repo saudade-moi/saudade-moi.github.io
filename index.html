@@ -7,15 +7,7 @@
 
 <title>Saudade & Moi</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
-
 <style>
-
-/* =========================================================
-   PAGE
-   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -30,740 +22,82 @@ body {
 
 body {
     min-height: 100vh;
-    min-height: 100svh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 30px;
+    background: #050205;
 
-    overflow-x: hidden;
-
-    text-align: center;
-    color: white;
-
-    background:
-        url("./fond.png")
-        center center / cover
-        no-repeat fixed;
-
-    background-color: #050205;
+    overflow: hidden;
 }
 
 
-/* =========================================================
-   CADRE PRINCIPAL
-   ========================================================= */
+/* IMAGE DE RÉFÉRENCE */
 
-.card {
+.page {
     position: relative;
 
-    /*
-       Proportions reprises de la première image de référence.
-       Le cadre est volontairement plus large que sur
-       l'index poussière de paillette.
-    */
-    width: min(910px, 86vw);
+    width: min(100vw, 150vh);
 
-    padding:
-        72px
-        82px
-        63px;
+    aspect-ratio: 3 / 2;
 
-    border-radius: 28px;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 42%,
-            rgba(62, 34, 43, 0.32) 0%,
-            rgba(27, 14, 23, 0.76) 53%,
-            rgba(11, 5, 10, 0.91) 100%
-        );
-
-    border:
-        2px solid
-        rgba(238, 187, 101, 0.90);
-
-    box-shadow:
-        0 0 2px rgba(255, 247, 215, 0.85),
-        0 0 7px rgba(238, 179, 82, 0.30),
-        0 0 18px rgba(207, 126, 44, 0.12),
-        inset 0 0 28px rgba(165, 93, 136, 0.07),
-        0 18px 55px rgba(0, 0, 0, 0.58);
+    background-image: url("./reference-saudade.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
-/* =========================================================
-   LUMIÈRE DU CADRE
-   ========================================================= */
+/* VRAI LECTEUR SPOTIFY */
 
-/*
-   Petits halos doux dans les coins.
-   Ils ne forment pas quatre grosses étoiles.
-*/
-
-.corner-light {
+.spotify {
     position: absolute;
 
-    width: 3px;
-    height: 3px;
+    left: 25.9%;
+    top: 55.4%;
 
-    border-radius: 50%;
+    width: 48.3%;
+    height: 16.5%;
 
-    background: rgba(255, 237, 190, 0.75);
-
-    box-shadow:
-        0 0 5px 2px rgba(255, 228, 165, 0.30),
-        0 0 13px 6px rgba(228, 157, 67, 0.13);
-
-    pointer-events: none;
+    z-index: 10;
 }
 
-.corner-tl {
-    top: 8px;
-    left: 9px;
-}
-
-.corner-tr {
-    top: 8px;
-    right: 9px;
-}
-
-.corner-bl {
-    bottom: 8px;
-    left: 9px;
-}
-
-.corner-br {
-    bottom: 8px;
-    right: 9px;
-}
-
-
-/* =========================================================
-   ÉCLATS SUR LA BORDURE
-   ========================================================= */
-
-.spark {
-    position: absolute;
-
-    z-index: 5;
-
-    width: 3px;
-    height: 3px;
-
-    border-radius: 50%;
-
-    background: #fffdf0;
-
-    pointer-events: none;
-
-    box-shadow:
-        0 0 2px 1px rgba(255,255,245,1),
-        0 0 5px 2px rgba(255,238,177,.80),
-        0 0 10px 3px rgba(240,183,84,.42),
-        0 0 18px 5px rgba(224,142,51,.16);
-}
-
-.spark::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 25px;
-    height: 1px;
-
-    transform: translate(-50%, -50%);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(241,186,88,.10),
-            rgba(255,232,171,.48),
-            #fffdf0,
-            rgba(255,232,171,.48),
-            rgba(241,186,88,.10),
-            transparent
-        );
-}
-
-.spark::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 1px;
-    height: 17px;
-
-    transform: translate(-50%, -50%);
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(241,186,88,.08),
-            rgba(255,232,171,.45),
-            #fffdf0,
-            rgba(255,232,171,.45),
-            rgba(241,186,88,.08),
-            transparent
-        );
-}
-
-.spark-top {
-    top: -1px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.spark-bottom {
-    bottom: -1px;
-    left: 50%;
-    transform: translate(-50%, 50%);
-}
-
-.spark-left {
-    left: -1px;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.spark-right {
-    right: -1px;
-    top: 50%;
-    transform: translate(50%, -50%);
-}
-
-
-/* =========================================================
-   TITRE
-   ========================================================= */
-
-.title {
-    position: relative;
-    z-index: 2;
-
-    margin: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    white-space: nowrap;
-
-    line-height: 0.90;
-}
-
-.title-word {
-    font-family:
-        "Italiana",
-        Georgia,
-        serif;
-
-    font-size: 68px;
-    font-weight: 400;
-
-    letter-spacing: -2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #dc9636 0%,
-            #f2bd61 24%,
-            #fff0b0 50%,
-            #f5c96e 73%,
-            #dd9837 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    filter:
-        drop-shadow(
-            0 0 3px
-            rgba(255, 198, 92, 0.12)
-        );
-}
-
-
-/* =========================================================
-   &
-   ========================================================= */
-
-.ampersand {
-    display: inline-block;
-
-    margin:
-        -10px
-        13px
-        0
-        12px;
-
-    font-family:
-        "Parisienne",
-        cursive;
-
-    font-size: 91px;
-    font-weight: 400;
-
-    line-height: 0.72;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fffceb 0%,
-            #fff1b1 39%,
-            #edba58 75%,
-            #d78e2d 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    transform: translateY(7px);
-
-    filter:
-        drop-shadow(
-            0 0 3px
-            rgba(255, 213, 118, 0.13)
-        );
-}
-
-
-/* =========================================================
-   CŒUR + TRAITS
-   ========================================================= */
-
-.ornament {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 20px;
-
-    margin:
-        27px
-        auto
-        23px;
-}
-
-.line {
-    width: 140px;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(218,157,61,.22),
-            #e6bd70 45%,
-            #fff0b2 50%,
-            #e6bd70 55%,
-            rgba(218,157,61,.22)
-        );
-
-    box-shadow:
-        0 0 3px
-        rgba(255,205,111,.12);
-}
-
-
-/* =========================================================
-   CŒUR
-   ========================================================= */
-
-.heart {
-    position: relative;
-
-    width: 38px;
-    height: 32px;
-
-    transform: rotate(-45deg);
-
-    border-left:
-        2px solid #f1d58b;
-
-    border-bottom:
-        2px solid #f1d58b;
-
-    border-radius:
-        2px 0 3px 0;
-
-    filter:
-        drop-shadow(
-            0 0 2px
-            rgba(255,214,122,.16)
-        );
-}
-
-.heart::before,
-.heart::after {
-    content: "";
-
-    position: absolute;
-
-    border:
-        2px solid #f1d58b;
-
-    border-radius: 50%;
-}
-
-.heart::before {
-    width: 20px;
-    height: 27px;
-
-    left: -2px;
-    top: -15px;
-
-    border-bottom-color: transparent;
-}
-
-.heart::after {
-    width: 27px;
-    height: 20px;
-
-    left: 9px;
-    top: 7px;
-
-    border-left-color: transparent;
-}
-
-
-/* =========================================================
-   TEXTES
-   ========================================================= */
-
-.subtitle {
-    position: relative;
-    z-index: 2;
-
-    margin:
-        0
-        0
-        12px;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 31px;
-
-    font-style: italic;
-    font-weight: 400;
-
-    line-height: 1.05;
-
-    color: #ead9e9;
-
-    text-shadow:
-        0 1px 5px
-        rgba(0,0,0,.75);
-}
-
-.description {
-    position: relative;
-    z-index: 2;
-
-    margin: 0;
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    font-size: 29px;
-
-    font-style: italic;
-    font-weight: 400;
-
-    line-height: 1.08;
-
-    color: #ead9e9;
-
-    text-shadow:
-        0 1px 5px
-        rgba(0,0,0,.75);
-}
-
-
-/* =========================================================
-   SPOTIFY
-   ========================================================= */
-
-.music-player {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-
-    margin:
-        43px
-        auto
-        0;
-}
-
-.music-player iframe {
+.spotify iframe {
     display: block;
 
     width: 100%;
-    height: 152px;
+    height: 100%;
 
     border: 0;
-
     border-radius: 13px;
-
-    box-shadow:
-        0 9px 28px
-        rgba(0,0,0,.48);
 }
 
 
-/* =========================================================
-   ÉCRANS PLUS PETITS
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .card {
-        width: min(850px, 90vw);
-
-        padding:
-            58px
-            62px
-            53px;
-    }
-
-    .title-word {
-        font-size: 61px;
-    }
-
-    .ampersand {
-        font-size: 83px;
-    }
-
-    .subtitle {
-        font-size: 28px;
-    }
-
-    .description {
-        font-size: 26px;
-    }
-}
-
-
-/* =========================================================
-   TÉLÉPHONE
-   ========================================================= */
+/* TÉLÉPHONE */
 
 @media (max-width: 650px) {
 
     body {
-        padding:
-            18px
-            10px;
-
-        background-attachment: scroll;
+        overflow: auto;
     }
 
-    .card {
-        width: 93vw;
-
-        padding:
-            34px
-            20px
-            28px;
-
-        border-radius: 20px;
-    }
-
-    .title-word {
-        font-size:
-            clamp(34px, 10vw, 47px);
-
-        letter-spacing: -1px;
-    }
-
-    .ampersand {
-        font-size:
-            clamp(52px, 14vw, 67px);
-
-        margin:
-            -6px
-            6px
-            0;
-
-        transform:
-            translateY(5px);
-    }
-
-    .ornament {
-        gap: 12px;
-
-        margin:
-            21px
-            auto
-            18px;
-    }
-
-    .line {
-        width:
-            clamp(65px, 21vw, 105px);
-    }
-
-    .heart {
-        transform:
-            rotate(-45deg)
-            scale(.82);
-
-        margin:
-            -3px;
-    }
-
-    .subtitle {
-        font-size: 21px;
-        margin-bottom: 8px;
-    }
-
-    .description {
-        font-size: 20px;
-        line-height: 1.12;
-    }
-
-    .music-player {
-        margin-top: 27px;
-    }
-
-    .music-player iframe {
-        height: 152px;
-    }
-}
-
-
-/* =========================================================
-   TRÈS PETIT TÉLÉPHONE
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .card {
-        width: 94vw;
-
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .title-word {
-        font-size: 32px;
-    }
-
-    .ampersand {
-        font-size: 48px;
-
-        margin-left: 4px;
-        margin-right: 4px;
-    }
-
-    .line {
-        width: 56px;
-    }
-
-    .subtitle {
-        font-size: 19px;
-    }
-
-    .description {
-        font-size: 18px;
+    .page {
+        width: 100vw;
+        aspect-ratio: 3 / 2;
+        flex-shrink: 0;
     }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-<div class="card">
+<div class="page">
 
-    <!-- lumière douce des coins -->
-
-    <span class="corner-light corner-tl"></span>
-    <span class="corner-light corner-tr"></span>
-    <span class="corner-light corner-bl"></span>
-    <span class="corner-light corner-br"></span>
-
-
-    <!-- quatre éclats du cadre -->
-
-    <span class="spark spark-top"></span>
-    <span class="spark spark-bottom"></span>
-    <span class="spark spark-left"></span>
-    <span class="spark spark-right"></span>
-
-
-    <!-- titre -->
-
-    <h1 class="title">
-
-        <span class="title-word">
-            Saudade
-        </span>
-
-        <span class="ampersand">
-            &amp;
-        </span>
-
-        <span class="title-word">
-            Moi
-        </span>
-
-    </h1>
-
-
-    <!-- traits + cœur -->
-
-    <div class="ornament">
-
-        <span class="line"></span>
-
-        <span class="heart"></span>
-
-        <span class="line"></span>
-
-    </div>
-
-
-    <!-- textes -->
-
-    <p class="subtitle">
-        Un peu de moi, un peu de nous…
-    </p>
-
-    <p class="description">
-        Où chaque souvenir se prolonge en musique
-    </p>
-
-
-    <!-- vrai lecteur Spotify -->
-
-    <div class="music-player">
+    <div class="spotify">
 
         <iframe
             src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator&theme=0"
