@@ -17,7 +17,7 @@ html,
 body {
     margin: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -33,32 +33,47 @@ body {
 }
 
 
-/* IMAGE DE RÉFÉRENCE */
+/* =====================================================
+   IMAGE DE RÉFÉRENCE SANS SPOTIFY
+   ===================================================== */
 
 .page {
     position: relative;
+
+    /*
+       L'image originale est au format 1536 x 1024.
+       On conserve exactement ses proportions.
+    */
 
     width: min(100vw, 150vh);
 
     aspect-ratio: 3 / 2;
 
-    background-image: url("./reference-saudade.png");
+    background-image: url("./reference-saudade-v2.png");
+
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 
-/* VRAI LECTEUR SPOTIFY */
+/* =====================================================
+   VRAI LECTEUR SPOTIFY
+   ===================================================== */
 
 .spotify {
     position: absolute;
 
-    left: 25.9%;
-    top: 55.4%;
+    /*
+       Position du lecteur dans l'espace vide
+       de l'image de référence
+    */
 
-    width: 48.3%;
-    height: 16.5%;
+    left: 25%;
+    top: 54%;
+
+    width: 50%;
+    height: 17%;
 
     z-index: 10;
 }
@@ -70,11 +85,18 @@ body {
     height: 100%;
 
     border: 0;
+
     border-radius: 13px;
+
+    box-shadow:
+        0 8px 24px
+        rgba(0, 0, 0, 0.35);
 }
 
 
-/* TÉLÉPHONE */
+/* =====================================================
+   ADAPTATION AUX PETITS ÉCRANS
+   ===================================================== */
 
 @media (max-width: 650px) {
 
@@ -87,15 +109,19 @@ body {
         aspect-ratio: 3 / 2;
         flex-shrink: 0;
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="page">
+
 
     <div class="spotify">
 
@@ -107,7 +133,9 @@ body {
 
     </div>
 
+
 </div>
+
 
 </body>
 
