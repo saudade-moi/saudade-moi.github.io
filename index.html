@@ -39,12 +39,8 @@ body {
 
 
 /* ==================================================
-   CONTENEUR DE RÉFÉRENCE
-
-   Proportions EXACTES de l'image :
-   1536 × 1024 = 3 / 2
-
-   L'image ET Spotify sont maintenant liés.
+   VERSION ORDINATEUR
+   CONSERVÉE
    ================================================== */
 
 .scene {
@@ -59,12 +55,6 @@ body {
     max-height: 88svh;
 }
 
-
-/*
-   Si la hauteur de l'écran devient la limite,
-   on calcule automatiquement la largeur
-   à partir du rapport 3/2.
-*/
 
 @media (min-width: 651px) {
 
@@ -101,39 +91,19 @@ body {
 
 
 /* ==================================================
-   SPOTIFY
-
-   Position calculée DIRECTEMENT
-   d'après l'image 1536 × 1024.
+   SPOTIFY ORDINATEUR
+   CONSERVÉ
    ================================================== */
 
 .spotify {
 
     position: absolute;
 
-    /*
-       Image originale :
-       x ≈ 397 / 1536
-       largeur ≈ 743 / 1536
-    */
-
     left: 25.85%;
 
     width: 48.37%;
 
-
-    /*
-       y ≈ 566 / 1024
-    */
-
     top: 55.27%;
-
-
-    /*
-       Hauteur réelle Spotify fonctionnel :
-       on conserve 152 px à l'échelle
-       de l'image de référence.
-    */
 
     height: 14.84%;
 
@@ -164,78 +134,122 @@ body {
 
 
 /* ==================================================
-   VERSION TÉLÉPHONE
+   VERSION TÉLÉPHONE UNIQUEMENT
    ================================================== */
 
 @media (max-width: 650px) {
 
     body {
 
+        position: relative;
+
+        display: block;
+
+        width: 100vw;
+
+        height: 100vh;
+        height: 100svh;
+
         overflow: hidden;
 
         background: #080509;
-
     }
 
 
     /*
-       On garde EXACTEMENT le rapport 3/2.
+       Sur téléphone on repart des dimensions
+       originales exactes de l'image :
+       1536 × 1024.
 
-       On agrandit la scène pour que le titre
-       et surtout les deux phrases restent lisibles.
-
-       Seules les extrémités décoratives peuvent
-       sortir de l'écran.
+       Toute la scène sera ensuite réduite
+       proportionnellement.
     */
 
     .scene {
 
-        flex: 0 0 auto;
+        position: fixed;
 
-        width: 142vw;
+        left: 50%;
+        top: 46%;
+
+        width: 1536px;
+        height: 1024px;
 
         max-width: none;
         max-height: none;
 
-        aspect-ratio: 3 / 2;
+        aspect-ratio: auto;
 
+        transform-origin: center center;
+
+        transform:
+            translate(-50%, -50%)
+            scale(var(--phone-scale, 0.4));
+    }
+
+
+    .decor {
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 1536px;
+        height: 1024px;
+
+        max-width: none;
+
+        object-fit: fill;
     }
 
 
     /*
-       Spotify reste attaché à l'image.
+       Position du lecteur dans l'image originale.
 
-       Il se réduit donc exactement
-       dans les mêmes proportions que le cadre.
+       Le lecteur possède maintenant sa vraie
+       hauteur de 152 px AVANT réduction.
+
+       Il est ensuite réduit avec toute la scène.
     */
 
     .spotify {
 
-        left: 25.85%;
+        position: absolute;
 
-        width: 48.37%;
+        left: 397px;
+        top: 566px;
 
-        top: 55.27%;
+        width: 743px;
+        height: 152px;
 
-        height: 14.84%;
+        min-height: 152px;
 
-        border-radius: 10px;
+        transform: none;
 
+        overflow: hidden;
+
+        border-radius: 14px;
+
+        background: #121212;
+
+        box-shadow:
+            0 8px 24px rgba(0,0,0,0.35);
     }
 
-}
 
+    .spotify iframe {
 
-/* ==================================================
-   PETITS TÉLÉPHONES
-   ================================================== */
+        display: block;
 
-@media (max-width: 380px) {
+        width: 743px;
+        height: 152px;
 
-    .scene {
+        border: 0;
 
-        width: 148vw;
+        border-radius: 14px;
 
+        overflow: hidden;
     }
 
 }
@@ -251,16 +265,12 @@ body {
 <div class="scene">
 
 
-    <!-- IMAGE DE FOND VALIDÉE -->
-
     <img
         class="decor"
         src="./saudade-sans-spotify.png"
         alt=""
     >
 
-
-    <!-- VRAI SPOTIFY -->
 
     <div class="spotify">
 
@@ -280,6 +290,64 @@ body {
 
 
 </div>
+
+
+<script>
+
+/*
+   UNIQUEMENT POUR LE TÉLÉPHONE.
+
+   Le cadre doré de l'image originale mesure
+   environ 910 px de large.
+
+   On lui donne environ 92 % de la largeur
+   du téléphone.
+
+   L'ordinateur n'est absolument pas concerné.
+*/
+
+function reglerTelephone() {
+
+    if (window.innerWidth <= 650) {
+
+        const largeurTelephone = window.innerWidth;
+
+        const largeurCadreOriginal = 910;
+
+        const largeurCadreVoulue =
+            largeurTelephone * 0.92;
+
+        const echelle =
+            largeurCadreVoulue / largeurCadreOriginal;
+
+        document.documentElement.style.setProperty(
+            "--phone-scale",
+            echelle
+        );
+
+    } else {
+
+        document.documentElement.style.removeProperty(
+            "--phone-scale"
+        );
+
+    }
+}
+
+
+reglerTelephone();
+
+window.addEventListener(
+    "resize",
+    reglerTelephone
+);
+
+window.addEventListener(
+    "orientationchange",
+    reglerTelephone
+);
+
+</script>
 
 
 </body>
