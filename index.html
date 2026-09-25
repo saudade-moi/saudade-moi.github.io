@@ -2,17 +2,20 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
 
 <title>Saudade & Moi</title>
 
 <style>
+
+/* =========================
+   BASE
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -38,12 +41,12 @@ body {
 }
 
 
-/* ==================================================
-   CONTENEUR DE RÉFÉRENCE
-   ================================================== */
+/* =========================
+   VERSION ORDINATEUR
+   NE PAS MODIFIER
+   ========================= */
 
 .scene {
-
     position: relative;
 
     aspect-ratio: 3 / 2;
@@ -58,24 +61,21 @@ body {
 @media (min-width: 651px) {
 
     .scene {
-
         width: min(
             92vw,
             1320px,
             calc(88svh * 1.5)
         );
-
     }
 
 }
 
 
-/* ==================================================
-   IMAGE
-   ================================================== */
+/* =========================
+   IMAGE DE FOND
+   ========================= */
 
 .decor {
-
     position: absolute;
 
     inset: 0;
@@ -89,21 +89,18 @@ body {
 }
 
 
-/* ==================================================
+/* =========================
    SPOTIFY ORDINATEUR
-   INCHANGÉ
-   ================================================== */
+   NE PAS MODIFIER
+   ========================= */
 
 .spotify {
-
     position: absolute;
 
     left: 25.85%;
-
     width: 48.37%;
 
     top: 55.27%;
-
     height: 14.84%;
 
     min-height: 0;
@@ -120,7 +117,6 @@ body {
 
 
 .spotify iframe {
-
     display: block;
 
     width: 100%;
@@ -133,67 +129,74 @@ body {
 
 
 /* ==================================================
-   VERSION TÉLÉPHONE
+   TÉLÉPHONE UNIQUEMENT
    ================================================== */
 
 @media (max-width: 650px) {
 
     body {
-
         overflow: hidden;
 
         background: #080509;
 
+        /*
+        Le décor occupe davantage la hauteur disponible.
+        Cela réduit les grandes zones noires.
+        */
+        align-items: center;
     }
 
 
-    /*
-       DÉCOR TÉLÉPHONE INCHANGÉ
-    */
-
     .scene {
+
+        /*
+        Même dessin.
+        Même rectangle doré.
+        On agrandit simplement l'ensemble sur téléphone.
+        */
 
         flex: 0 0 auto;
 
-        width: 142vw;
+        width: 158vw;
 
         max-width: none;
         max-height: none;
 
         aspect-ratio: 3 / 2;
-
     }
 
 
     /*
-       SPOTIFY TÉLÉPHONE
+    SPOTIFY TÉLÉPHONE
 
-       C'est la SEULE partie que l'on ajuste.
-
-       Le lecteur est légèrement moins large
-       pour rester à l'intérieur du cadre.
-
-       Sa hauteur reste suffisante pour que
-       Spotify affiche correctement ses textes
-       et ses commandes.
+    Il reste entièrement à l'intérieur
+    du rectangle doré.
     */
 
     .spotify {
 
-        left: 29%;
+        left: 26.5%;
 
-        width: 42%;
+        width: 47%;
 
-        top: 56%;
+        top: 56.1%;
 
-        height: 152px;
+        /*
+        IMPORTANT :
+        la hauteur reste proportionnelle au décor.
+        On évite le lecteur de 152 px qui
+        débordait du rectangle.
+        */
 
-        min-height: 152px;
+        height: 15%;
 
-        border-radius: 12px;
+        min-height: 0;
+
+        border-radius: 10px;
 
         overflow: hidden;
 
+        background: #121212;
     }
 
 
@@ -202,80 +205,52 @@ body {
         display: block;
 
         width: 100%;
-
-        height: 152px;
+        height: 100%;
 
         border: 0;
 
-        border-radius: 12px;
-
+        border-radius: inherit;
     }
 
 }
 
 
-/* ==================================================
+/* =========================
    PETITS TÉLÉPHONES
-   ================================================== */
+   ========================= */
 
 @media (max-width: 380px) {
 
     .scene {
-
-        width: 148vw;
-
-    }
-
-
-    /*
-       On garde le même principe Spotify.
-    */
-
-    .spotify {
-
-        left: 29%;
-
-        width: 42%;
-
-        top: 56%;
-
-        height: 152px;
-
-        min-height: 152px;
-
+        width: 164vw;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
 <div class="scene">
-
-
-    <!-- IMAGE DE FOND -->
 
     <img
         class="decor"
         src="./saudade-sans-spotify.png"
-        alt=""
-    >
+        alt="">
 
-
-    <!-- VRAI LIEN SPOTIFY -->
 
     <div class="spotify">
 
         <iframe
-
             src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator&theme=0"
 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            allow="autoplay;
+                   clipboard-write;
+                   encrypted-media;
+                   fullscreen;
+                   picture-in-picture"
 
             loading="lazy"
 
@@ -285,9 +260,7 @@ body {
 
     </div>
 
-
 </div>
-
 
 </body>
 
