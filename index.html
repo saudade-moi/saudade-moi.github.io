@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================
-   BASE
-   ========================= */
-
 * {
     box-sizing: border-box;
 }
@@ -41,10 +37,9 @@ body {
 }
 
 
-/* =========================
-   VERSION ORDINATEUR
-   NE PAS MODIFIER
-   ========================= */
+/* =========================================
+   ORDINATEUR — INCHANGÉ
+   ========================================= */
 
 .scene {
     position: relative;
@@ -57,7 +52,6 @@ body {
     max-height: 88svh;
 }
 
-
 @media (min-width: 651px) {
 
     .scene {
@@ -69,11 +63,6 @@ body {
     }
 
 }
-
-
-/* =========================
-   IMAGE DE FOND
-   ========================= */
 
 .decor {
     position: absolute;
@@ -89,10 +78,9 @@ body {
 }
 
 
-/* =========================
-   SPOTIFY ORDINATEUR
-   NE PAS MODIFIER
-   ========================= */
+/* =========================================
+   SPOTIFY ORDINATEUR — INCHANGÉ
+   ========================================= */
 
 .spotify {
     position: absolute;
@@ -115,7 +103,6 @@ body {
         0 8px 24px rgba(0,0,0,0.35);
 }
 
-
 .spotify iframe {
     display: block;
 
@@ -128,23 +115,21 @@ body {
 }
 
 
-/* ==================================================
+/* =========================================
    TÉLÉPHONE UNIQUEMENT
-   ================================================== */
+   ========================================= */
 
 @media (max-width: 650px) {
 
     body {
-        overflow: hidden;
-
         background: #080509;
-
-        align-items: center;
+        overflow: hidden;
     }
 
 
-    .scene {
+    /* Le décor reste agrandi comme actuellement */
 
+    .scene {
         flex: 0 0 auto;
 
         width: 158vw;
@@ -156,15 +141,24 @@ body {
     }
 
 
+    /*
+       SPOTIFY
+
+       Sa largeur dépend maintenant de
+       L'ÉCRAN DU TÉLÉPHONE et non plus
+       de la grande image.
+    */
+
     .spotify {
 
-        left: 26.5%;
+        width: 76vw;
 
-        width: 47%;
+        left: 50%;
+        transform: translateX(-50%);
 
-        top: 56.1%;
+        top: 56%;
 
-        height: 15%;
+        height: 13.5vw;
 
         min-height: 0;
 
@@ -191,14 +185,23 @@ body {
 }
 
 
-/* =========================
+/* =========================================
    PETITS TÉLÉPHONES
-   ========================= */
+   ========================================= */
 
 @media (max-width: 380px) {
 
     .scene {
         width: 164vw;
+    }
+
+    .spotify {
+        width: 76vw;
+
+        left: 50%;
+        transform: translateX(-50%);
+
+        height: 13.5vw;
     }
 
 }
