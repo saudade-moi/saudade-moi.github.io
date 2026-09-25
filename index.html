@@ -12,9 +12,9 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <style>
 
-/* ==================================================
-   BASE
-   ================================================== */
+/* =========================
+   REMISE À ZÉRO
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -28,15 +28,15 @@ body {
     width: 100%;
     height: 100%;
 
-    background: #080509;
-
     overflow: hidden;
+
+    background: #080509;
 }
 
 
-/* ==================================================
-   PAGE
-   ================================================== */
+/* =========================
+   PAGE ENTIÈRE
+   ========================= */
 
 .page {
 
@@ -45,7 +45,6 @@ body {
     inset: 0;
 
     width: 100vw;
-
     height: 100vh;
     height: 100svh;
 
@@ -55,10 +54,9 @@ body {
 }
 
 
-/* ==================================================
-   ORDINATEUR
-   NE PAS MODIFIER
-   ================================================== */
+/* =========================
+   IMAGE ORDINATEUR
+   ========================= */
 
 .decor {
 
@@ -82,18 +80,39 @@ body {
 }
 
 
+/* =========================
+   SPOTIFY ORDINATEUR
+   ========================= */
+
 .spotify {
 
     position: absolute;
 
     left: 50%;
+
+    /*
+       Placé dans la partie basse
+       du cadre doré
+    */
+
     top: 63%;
 
     transform: translate(-50%, -50%);
 
+    /*
+       Taille volontairement plus petite
+       que dans les essais précédents
+    */
+
     width: 380px;
 
     max-width: 32vw;
+
+    /*
+       IMPORTANT :
+       Spotify reste à sa vraie hauteur.
+       PLUS de hauteur en pourcentage.
+    */
 
     height: 152px;
 
@@ -113,97 +132,79 @@ body {
     display: block;
 
     width: 100%;
+
     height: 152px;
 
     border: 0;
+
+    overflow: hidden;
 
     border-radius: 14px;
 }
 
 
-/* ==================================================
-   TÉLÉPHONE UNIQUEMENT
-   ================================================== */
+/* =========================
+   TÉLÉPHONE
+   ========================= */
 
-@media screen and (max-width: 650px) {
+@media (max-width: 650px) {
+
 
     .page {
 
-        width: 100vw;
-
-        height: 100vh;
-        height: 100svh;
-
-        overflow: hidden;
-
         background: #080509;
+
     }
 
 
     /*
-       CADRE / DÉCOR
-
-       On conserve 130vw pour ne pas rendre
-       les deux phrases trop petites.
+       L'image reste suffisamment grande
+       pour que les deux phrases
+       restent lisibles.
     */
 
     .decor {
 
-        position: absolute;
-
-        left: 50%;
-        top: 43%;
-
-        transform: translate(-50%, -50%);
-
-        width: 130vw;
+        width: 140vw;
 
         height: auto;
 
         max-width: none;
 
-        object-fit: contain;
+        left: 50%;
+
+        top: 45%;
+
+        transform: translate(-50%, -50%);
     }
 
 
     /*
-       SPOTIFY TÉLÉPHONE
-
-       Réduit de 300px à 230px.
-       Il doit maintenant rester
-       à l'intérieur du cadre doré.
+       Spotify téléphone :
+       plus petit que les essais précédents,
+       mais toujours 152 px de haut.
     */
 
     .spotify {
 
-        position: absolute;
-
         left: 50%;
 
-        top: 55.5%;
+        top: 58%;
 
         transform: translate(-50%, -50%);
 
-        width: 230px;
+        width: 250px;
 
-        max-width: 62vw;
+        max-width: 66vw;
 
         height: 152px;
 
-        overflow: hidden;
-
         border-radius: 12px;
 
-        background: #121212;
-
-        box-shadow:
-            0 6px 18px rgba(0,0,0,0.35);
     }
 
 
     .spotify iframe {
-
-        display: block;
 
         width: 100%;
 
@@ -212,32 +213,33 @@ body {
         border: 0;
 
         border-radius: 12px;
+
     }
 
 }
 
 
-/* ==================================================
+/* =========================
    PETITS TÉLÉPHONES
-   ================================================== */
+   ========================= */
 
-@media screen and (max-width: 380px) {
+@media (max-width: 380px) {
 
     .decor {
 
-        width: 135vw;
+        width: 145vw;
 
-        top: 43%;
     }
 
 
     .spotify {
 
-        width: 215px;
+        width: 225px;
 
-        max-width: 60vw;
+        max-width: 64vw;
 
-        top: 55.5%;
+        height: 152px;
+
     }
 
 }
