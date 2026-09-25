@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -13,6 +14,10 @@
 
 <style>
 
+/* ==============================
+   BASE
+   ============================== */
+
 * {
     box-sizing: border-box;
 }
@@ -22,76 +27,83 @@ body {
     margin: 0;
     width: 100%;
     min-height: 100%;
-}
-
-html {
     background: #070408;
 }
 
 body {
     min-height: 100vh;
     min-height: 100svh;
-
-    background: #070408;
-
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
-/* ==================================================
+/* ==============================
    PAGE
-   ================================================== */
+   ============================== */
 
 .page {
 
     position: relative;
 
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
 
-    min-height: 100vh;
-    min-height: 100svh;
+    overflow: hidden;
 
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    /*
-       IMAGE VALIDÉE SANS SPOTIFY
-    */
-
-    background-image:
-        url("./saudade-sans-spotify.png");
-
-    background-repeat: no-repeat;
-
-    background-position: center center;
-
-    background-size: cover;
+    background-color: #070408;
 
 }
 
 
-/* ==================================================
-   ZONE SPOTIFY
-   ================================================== */
+/* ==============================
+   IMAGE DU DÉCOR
+   ============================== */
 
-.spotify {
+.decor {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
 
     /*
-       Position correspondant à l'emplacement
-       du lecteur dans ton modèle validé.
+       Taille ordinateur :
+       on réduit le cadre mais on garde
+       les phrases suffisamment grandes.
     */
+
+    width: min(1360px, 92vw);
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+/* ==============================
+   SPOTIFY
+   ============================== */
+
+.spotify {
 
     position: absolute;
 
     left: 50%;
 
-    top: 63.5%;
+    /*
+       Position calculée par rapport
+       à l'image complète.
+    */
+
+    top: 64%;
 
     transform: translate(-50%, -50%);
 
-    width: min(805px, 52.5vw);
+    width: min(720px, 49vw);
 
     height: 152px;
 
@@ -106,98 +118,96 @@ body {
 
 }
 
-
 .spotify iframe {
 
     display: block;
 
     width: 100%;
-
     height: 152px;
 
     border: 0;
 
     border-radius: 14px;
 
-    background: #121212;
-
 }
 
 
-/* ==================================================
-   ÉCRANS D'ORDINATEUR PLUS PETITS
-   ================================================== */
+/* ==========================================
+   ORDINATEUR AVEC ÉCRAN MOINS LARGE
+   ========================================== */
 
-@media
-(max-width: 1200px)
-and (min-width: 651px) {
+@media (max-width: 1100px) and (min-width: 651px) {
+
+    .decor {
+
+        width: 96vw;
+
+    }
 
     .spotify {
 
-        width: 55vw;
+        width: 58vw;
 
-        top: 63.5%;
+        max-width: 680px;
+
+        top: 64%;
 
     }
 
 }
 
 
-/* ==================================================
+/* ==========================================
    TÉLÉPHONE
-   ================================================== */
+   ========================================== */
 
 @media (max-width: 650px) {
 
     body {
+        overflow-y: auto;
+    }
+
+    .page {
 
         min-height: 100svh;
+
+        height: 100svh;
+
+        overflow: hidden;
 
     }
 
 
-    .page {
+    /*
+       Sur téléphone :
+       on agrandit suffisamment l'image
+       pour que le titre ET les phrases
+       restent lisibles.
 
-        /*
-           Même décor et mêmes couleurs.
+       Les côtés du décor peuvent être
+       légèrement coupés.
+    */
 
-           Sur téléphone on ne force surtout plus
-           l'image horizontale entière à rentrer
-           dans la largeur.
+    .decor {
 
-           COVER remplit l'écran :
-           donc plus d'énormes bandes noires
-           au-dessus et en dessous.
-        */
+        width: auto;
 
-        min-height: 100svh;
+        height: 78svh;
 
-        background-size: cover;
-
-        background-position: center center;
+        max-width: none;
 
     }
 
 
     .spotify {
 
-        /*
-           Le lecteur reste lisible sur téléphone.
-        */
+        width: 80vw;
 
-        position: absolute;
-
-        left: 50%;
-
-        top: 65%;
-
-        transform: translate(-50%, -50%);
-
-        width: 82vw;
-
-        max-width: 430px;
+        max-width: 390px;
 
         height: 152px;
+
+        top: 65%;
 
         border-radius: 12px;
 
@@ -206,8 +216,6 @@ and (min-width: 651px) {
 
     .spotify iframe {
 
-        width: 100%;
-
         height: 152px;
 
         border-radius: 12px;
@@ -217,15 +225,21 @@ and (min-width: 651px) {
 }
 
 
-/* ==================================================
+/* ==========================================
    PETITS TÉLÉPHONES
-   ================================================== */
+   ========================================== */
 
 @media (max-width: 380px) {
 
+    .decor {
+
+        height: 75svh;
+
+    }
+
     .spotify {
 
-        width: 86vw;
+        width: 84vw;
 
         top: 65%;
 
@@ -234,6 +248,7 @@ and (min-width: 651px) {
 }
 
 </style>
+
 </head>
 
 
@@ -243,10 +258,16 @@ and (min-width: 651px) {
 <main class="page">
 
 
-    <!--
-        SEUL ET UNIQUE LECTEUR SPOTIFY
-        FLAMME - RADIO EDIT / SLAÏ
-    -->
+    <!-- IMAGE VALIDÉE -->
+
+    <img
+        class="decor"
+        src="./saudade-sans-spotify.png"
+        alt=""
+    >
+
+
+    <!-- VRAI SPOTIFY : FLAMME / SLAÏ -->
 
     <div class="spotify">
 
