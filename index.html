@@ -5,12 +5,18 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>Saudade & Moi</title>
 
 <style>
+
+/* =========================================
+   BASE
+   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -55,8 +61,8 @@ body {
 
 
 /* =========================================
-   IMAGE
-   ON GARDE LA TAILLE ACTUELLE
+   IMAGE PRINCIPALE
+   VERSION ORDINATEUR
    ========================================= */
 
 .decor {
@@ -82,7 +88,8 @@ body {
 
 
 /* =========================================
-   SPOTIFY - ORDINATEUR
+   SPOTIFY
+   VERSION ORDINATEUR
    ========================================= */
 
 .spotify {
@@ -90,16 +97,13 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 64%;
+    top: 63.5%;
 
     transform: translate(-50%, -50%);
 
-    /*
-       RÉDUIT POUR RESTER
-       À L'INTÉRIEUR DU CADRE DORÉ
-    */
+    width: 390px;
 
-    width: min(460px, 37vw);
+    max-width: 32vw;
 
     height: 152px;
 
@@ -119,6 +123,7 @@ body {
     display: block;
 
     width: 100%;
+
     height: 152px;
 
     border: 0;
@@ -128,7 +133,7 @@ body {
 
 
 /* =========================================
-   ORDINATEUR PEU HAUT
+   ORDINATEUR AVEC ÉCRAN PEU HAUT
    ========================================= */
 
 @media (min-width: 651px) and (max-height: 700px) {
@@ -138,17 +143,21 @@ body {
         height: 86svh;
     }
 
+
     .spotify {
 
-        width: min(450px, 36vw);
+        width: 370px;
 
-        top: 64%;
+        max-width: 31vw;
+
+        top: 63.5%;
     }
+
 }
 
 
 /* =========================================
-   TÉLÉPHONE
+   VERSION TÉLÉPHONE
    ========================================= */
 
 @media (max-width: 650px) {
@@ -156,6 +165,8 @@ body {
     .page {
 
         width: 100vw;
+
+        height: 100vh;
         height: 100svh;
 
         background:
@@ -169,8 +180,8 @@ body {
 
 
     /*
-       ON CONSERVE LE RÉGLAGE DU DÉCOR
-       POUR QUE LES PHRASES RESTENT LISIBLES
+       Le décor reste suffisamment grand
+       pour que les deux phrases soient lisibles.
     */
 
     .decor {
@@ -189,21 +200,22 @@ body {
 
 
     /*
-       SPOTIFY PLUS ÉTROIT :
-       IL RESTE DANS LE CADRE DORÉ
+       Spotify téléphone :
+       plus petit et centré dans
+       le cadre doré.
     */
 
     .spotify {
 
         left: 50%;
 
-        top: 58%;
+        top: 57.5%;
 
         transform: translate(-50%, -50%);
 
-        width: 64vw;
+        width: 58vw;
 
-        max-width: 330px;
+        max-width: 270px;
 
         height: 152px;
 
@@ -219,11 +231,12 @@ body {
 
         border-radius: 12px;
     }
+
 }
 
 
 /* =========================================
-   PETITS TÉLÉPHONES
+   TRÈS PETITS TÉLÉPHONES
    ========================================= */
 
 @media (max-width: 380px) {
@@ -235,14 +248,16 @@ body {
         top: 45%;
     }
 
+
     .spotify {
 
-        width: 66vw;
+        width: 60vw;
 
-        max-width: 300px;
+        max-width: 240px;
 
-        top: 58%;
+        top: 57.5%;
     }
+
 }
 
 </style>
@@ -252,10 +267,14 @@ body {
 
 <body>
 
+
 <main class="page">
 
 
-    <!-- IMAGE VALIDÉE -->
+    <!--
+        IMAGE VALIDÉE
+        NE CONTIENT PAS LE FAUX SPOTIFY
+    -->
 
     <img
         class="decor"
@@ -264,7 +283,11 @@ body {
     >
 
 
-    <!-- VRAI SPOTIFY -->
+    <!--
+        VRAI SPOTIFY
+        FLAMME - RADIO EDIT
+        SLAÏ
+    -->
 
     <div class="spotify">
 
@@ -284,6 +307,7 @@ body {
 
 
 </main>
+
 
 </body>
 
