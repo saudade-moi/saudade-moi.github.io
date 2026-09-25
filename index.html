@@ -1,3 +1,5 @@
+potify suivra exactement l’image quand elle est réduite sur ordinateur ou téléphone.
+Voici le nouvel index.html complet. Il remplace tous les précédents.
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,10 +16,6 @@
 
 <style>
 
-/* =========================================
-   BASE
-   ========================================= */
-
 * {
     box-sizing: border-box;
 }
@@ -26,86 +24,122 @@ html,
 body {
     margin: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background: #080509;
 }
 
 body {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     overflow: hidden;
 }
 
 
-/* =========================================
-   PAGE
-   ========================================= */
+/* ==================================================
+   CONTENEUR DE RÉFÉRENCE
 
-.page {
+   Proportions EXACTES de l'image :
+   1536 × 1024 = 3 / 2
+
+   L'image ET Spotify sont maintenant liés.
+   ================================================== */
+
+.scene {
 
     position: relative;
 
-    width: 100vw;
+    aspect-ratio: 3 / 2;
 
-    height: 100vh;
-    height: 100svh;
+    width: min(92vw, 1320px);
 
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            #241020 0%,
-            #120911 52%,
-            #080509 100%
-        );
+    max-height: 88vh;
+    max-height: 88svh;
 }
 
 
-/* =========================================
-   IMAGE PRINCIPALE
-   VERSION ORDINATEUR
-   ========================================= */
+/*
+   Si la hauteur de l'écran devient la limite,
+   on calcule automatiquement la largeur
+   à partir du rapport 3/2.
+*/
+
+@media (min-width: 651px) {
+
+    .scene {
+
+        width: min(
+            92vw,
+            1320px,
+            calc(88svh * 1.5)
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   IMAGE
+   ================================================== */
 
 .decor {
 
     position: absolute;
 
-    left: 50%;
-    top: 50%;
+    inset: 0;
 
-    transform: translate(-50%, -50%);
-
-    width: auto;
-
-    height: 88vh;
-    height: 88svh;
-
-    max-width: 94vw;
-
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
 
     display: block;
+
+    object-fit: contain;
 }
 
 
-/* =========================================
+/* ==================================================
    SPOTIFY
-   VERSION ORDINATEUR
-   ========================================= */
+
+   Position calculée DIRECTEMENT
+   d'après l'image 1536 × 1024.
+   ================================================== */
 
 .spotify {
 
     position: absolute;
 
-    left: 50%;
-    top: 63.5%;
+    /*
+       Image originale :
+       x ≈ 397 / 1536
+       largeur ≈ 743 / 1536
+    */
 
-    transform: translate(-50%, -50%);
+    left: 25.85%;
 
-    width: 390px;
+    width: 48.37%;
 
-    max-width: 32vw;
 
-    height: 152px;
+    /*
+       y ≈ 566 / 1024
+    */
+
+    top: 55.27%;
+
+
+    /*
+       Hauteur réelle Spotify fonctionnel :
+       on conserve 152 px à l'échelle
+       de l'image de référence.
+    */
+
+    height: 14.84%;
+
+    min-height: 0;
 
     overflow: hidden;
 
@@ -114,7 +148,7 @@ body {
     background: #121212;
 
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.35);
+        0 8px 24px rgba(0,0,0,0.35);
 }
 
 
@@ -123,139 +157,87 @@ body {
     display: block;
 
     width: 100%;
-
-    height: 152px;
+    height: 100%;
 
     border: 0;
 
-    border-radius: 14px;
+    border-radius: inherit;
 }
 
 
-/* =========================================
-   ORDINATEUR AVEC ÉCRAN PEU HAUT
-   ========================================= */
-
-@media (min-width: 651px) and (max-height: 700px) {
-
-    .decor {
-
-        height: 86svh;
-    }
-
-
-    .spotify {
-
-        width: 370px;
-
-        max-width: 31vw;
-
-        top: 63.5%;
-    }
-
-}
-
-
-/* =========================================
+/* ==================================================
    VERSION TÉLÉPHONE
-   ========================================= */
+   ================================================== */
 
 @media (max-width: 650px) {
 
-    .page {
+    body {
 
-        width: 100vw;
+        overflow: hidden;
 
-        height: 100vh;
-        height: 100svh;
+        background: #080509;
 
-        background:
-            radial-gradient(
-                ellipse at center,
-                #291126 0%,
-                #140a13 55%,
-                #080509 100%
-            );
     }
 
 
     /*
-       Le décor reste suffisamment grand
-       pour que les deux phrases soient lisibles.
+       On garde EXACTEMENT le rapport 3/2.
+
+       On agrandit la scène pour que le titre
+       et surtout les deux phrases restent lisibles.
+
+       Seules les extrémités décoratives peuvent
+       sortir de l'écran.
     */
 
-    .decor {
+    .scene {
 
-        width: 145vw;
+        flex: 0 0 auto;
 
-        height: auto;
+        width: 142vw;
 
         max-width: none;
+        max-height: none;
 
-        left: 50%;
-        top: 45%;
+        aspect-ratio: 3 / 2;
 
-        transform: translate(-50%, -50%);
     }
 
 
     /*
-       Spotify téléphone :
-       plus petit et centré dans
-       le cadre doré.
+       Spotify reste attaché à l'image.
+
+       Il se réduit donc exactement
+       dans les mêmes proportions que le cadre.
     */
 
     .spotify {
 
-        left: 50%;
+        left: 25.85%;
 
-        top: 57.5%;
+        width: 48.37%;
 
-        transform: translate(-50%, -50%);
+        top: 55.27%;
 
-        width: 58vw;
+        height: 14.84%;
 
-        max-width: 270px;
+        border-radius: 10px;
 
-        height: 152px;
-
-        border-radius: 12px;
-    }
-
-
-    .spotify iframe {
-
-        width: 100%;
-
-        height: 152px;
-
-        border-radius: 12px;
     }
 
 }
 
 
-/* =========================================
-   TRÈS PETITS TÉLÉPHONES
-   ========================================= */
+/* ==================================================
+   PETITS TÉLÉPHONES
+   ================================================== */
 
 @media (max-width: 380px) {
 
-    .decor {
+    .scene {
 
-        width: 150vw;
+        width: 148vw;
 
-        top: 45%;
-    }
-
-
-    .spotify {
-
-        width: 60vw;
-
-        max-width: 240px;
-
-        top: 57.5%;
     }
 
 }
@@ -268,13 +250,10 @@ body {
 <body>
 
 
-<main class="page">
+<div class="scene">
 
 
-    <!--
-        IMAGE VALIDÉE
-        NE CONTIENT PAS LE FAUX SPOTIFY
-    -->
+    <!-- IMAGE DE FOND VALIDÉE -->
 
     <img
         class="decor"
@@ -283,11 +262,7 @@ body {
     >
 
 
-    <!--
-        VRAI SPOTIFY
-        FLAMME - RADIO EDIT
-        SLAÏ
-    -->
+    <!-- VRAI SPOTIFY -->
 
     <div class="spotify">
 
@@ -306,7 +281,7 @@ body {
     </div>
 
 
-</main>
+</div>
 
 
 </body>
