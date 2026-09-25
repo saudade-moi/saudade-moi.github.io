@@ -3,14 +3,13 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>Saudade & Moi</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
 
 <style>
 
@@ -25,229 +24,76 @@ body {
     min-height: 100%;
 }
 
+html {
+    background: #070408;
+}
+
 body {
     min-height: 100vh;
     min-height: 100svh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 38px 24px;
+    background: #070408;
 
     overflow-x: hidden;
-
-    color: white;
-
-    /*
-       TON FOND VALIDÉ :
-       on utilise l'image de référence déjà présente
-       dans ton dépôt.
-    */
-    background:
-        linear-gradient(
-            rgba(5, 2, 7, 0.05),
-            rgba(5, 2, 7, 0.05)
-        ),
-        url("./saudade-base-sans-spotify-propre.png");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    background-color: #050306;
 }
 
 
-/* =========================================
-   GRAND CADRE
-   ========================================= */
+/* ==================================================
+   PAGE
+   ================================================== */
 
-.card {
+.page {
+
     position: relative;
 
-    width: min(910px, 76vw);
-
-    padding: 55px 68px 58px;
-
-    border-radius: 22px;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            ellipse at 75% 65%,
-            rgba(86, 36, 79, 0.32),
-            rgba(27, 12, 25, 0.88) 58%,
-            rgba(11, 6, 12, 0.94) 100%
-        );
-
-    border: 1px solid rgba(224, 173, 100, 0.95);
-
-    box-shadow:
-        0 0 3px rgba(255, 226, 168, 0.55),
-        0 0 13px rgba(218, 157, 79, 0.15),
-        0 20px 60px rgba(0, 0, 0, 0.45);
-}
-
-
-/* =========================================
-   TITRE
-   ========================================= */
-
-.title {
-    margin: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    white-space: nowrap;
-
-    line-height: 0.95;
-}
-
-
-.title-word {
-    font-family: "Italiana", Georgia, serif;
-
-    font-size: clamp(58px, 5vw, 78px);
-
-    font-weight: 400;
-
-    letter-spacing: -1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #c78c4c 0%,
-            #e8bd79 25%,
-            #fff1bc 52%,
-            #e9c27e 75%,
-            #c98e4d 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-
-.ampersand {
-    margin: -6px 15px 0;
-
-    font-family: "Parisienne", cursive;
-
-    font-size: clamp(74px, 6vw, 94px);
-
-    line-height: 0.75;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff5c9,
-            #e4b969
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    transform: translateY(5px);
-}
-
-
-/* =========================================
-   CŒUR + LIGNES
-   ========================================= */
-
-.ornament {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 18px;
-
-    margin: 28px auto 22px;
-}
-
-
-.line {
-    width: 140px;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d8b778 25%,
-            #f4dfaa 50%,
-            #d8b778 75%,
-            transparent
-        );
-}
-
-
-.heart {
-    font-family: Georgia, serif;
-
-    font-size: 39px;
-
-    line-height: 1;
-
-    color: #ead28f;
-
-    font-weight: 300;
-}
-
-
-/* =========================================
-   TEXTES
-   ========================================= */
-
-.subtitle,
-.description {
-    margin: 0;
-
-    font-family: "Cormorant Garamond", Georgia, serif;
-
-    font-style: italic;
-    font-weight: 400;
-
-    color: #e6d6e6;
-
-    text-shadow:
-        0 2px 7px rgba(0, 0, 0, 0.85);
-}
-
-
-.subtitle {
-    font-size: 30px;
-
-    line-height: 1.15;
-
-    margin-bottom: 9px;
-}
-
-
-.description {
-    font-size: 29px;
-
-    line-height: 1.15;
-}
-
-
-/* =========================================
-   VRAI SPOTIFY
-   ========================================= */
-
-.spotify {
     width: 100%;
 
-    margin: 35px auto 0;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    /*
+       IMAGE VALIDÉE SANS SPOTIFY
+    */
+
+    background-image:
+        url("./saudade-sans-spotify.png");
+
+    background-repeat: no-repeat;
+
+    background-position: center center;
+
+    background-size: cover;
+
+}
+
+
+/* ==================================================
+   ZONE SPOTIFY
+   ================================================== */
+
+.spotify {
+
+    /*
+       Position correspondant à l'emplacement
+       du lecteur dans ton modèle validé.
+    */
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 63.5%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(805px, 52.5vw);
+
+    height: 152px;
 
     overflow: hidden;
 
@@ -256,19 +102,17 @@ body {
     background: #121212;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.38);
+        0 8px 25px rgba(0, 0, 0, 0.38);
+
 }
 
 
 .spotify iframe {
+
     display: block;
 
     width: 100%;
 
-    /*
-       Hauteur réelle du lecteur Spotify.
-       Plus de gros rectangle noir vide.
-    */
     height: 152px;
 
     border: 0;
@@ -276,204 +120,115 @@ body {
     border-radius: 14px;
 
     background: #121212;
+
 }
 
 
-/* =========================================
-   TABLETTE
-   ========================================= */
+/* ==================================================
+   ÉCRANS D'ORDINATEUR PLUS PETITS
+   ================================================== */
 
-@media (max-width: 900px) {
+@media
+(max-width: 1200px)
+and (min-width: 651px) {
 
-    body {
-        padding: 25px 18px;
+    .spotify {
 
-        background-attachment: scroll;
-    }
+        width: 55vw;
 
-    .card {
-        width: min(760px, 88vw);
+        top: 63.5%;
 
-        padding:
-            48px
-            50px
-            50px;
-    }
-
-    .title-word {
-        font-size: 58px;
-    }
-
-    .ampersand {
-        font-size: 75px;
     }
 
 }
 
 
-/* =========================================
+/* ==================================================
    TÉLÉPHONE
-   ========================================= */
+   ================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     body {
+
+        min-height: 100svh;
+
+    }
+
+
+    .page {
+
         /*
-           On remplit réellement l'écran.
-           Plus de page horizontale minuscule
-           au milieu de grandes bandes noires.
+           Même décor et mêmes couleurs.
+
+           Sur téléphone on ne force surtout plus
+           l'image horizontale entière à rentrer
+           dans la largeur.
+
+           COVER remplit l'écran :
+           donc plus d'énormes bandes noires
+           au-dessus et en dessous.
         */
 
         min-height: 100svh;
 
-        padding: 22px 13px;
-
         background-size: cover;
 
-        /*
-           Même fichier et mêmes couleurs
-           que sur ordinateur.
-        */
-        background-position: center;
+        background-position: center center;
 
-        background-attachment: scroll;
-    }
-
-
-    .card {
-        /*
-           Même design, mais recomposé
-           pour l'écran du téléphone.
-        */
-
-        width: 94vw;
-
-        padding:
-            35px
-            20px
-            31px;
-
-        border-radius: 19px;
-    }
-
-
-    .title-word {
-        font-size: clamp(38px, 10.8vw, 52px);
-
-        letter-spacing: -0.8px;
-    }
-
-
-    .ampersand {
-        margin-left: 7px;
-        margin-right: 7px;
-
-        font-size: clamp(55px, 14vw, 68px);
-    }
-
-
-    .ornament {
-        gap: 11px;
-
-        margin:
-            22px
-            auto
-            18px;
-    }
-
-
-    .line {
-        width: clamp(65px, 21vw, 100px);
-    }
-
-
-    .heart {
-        font-size: 31px;
-    }
-
-
-    /*
-       LES DEUX PHRASES RESTENT LISIBLES
-       contrairement à l'ancienne version.
-    */
-
-    .subtitle {
-        font-size: clamp(23px, 6.1vw, 29px);
-
-        line-height: 1.12;
-
-        margin-bottom: 8px;
-    }
-
-
-    .description {
-        font-size: clamp(22px, 5.8vw, 28px);
-
-        line-height: 1.14;
     }
 
 
     .spotify {
-        margin-top: 28px;
 
-        border-radius: 12px;
-    }
-
-
-    .spotify iframe {
         /*
-           Spotify reste à sa vraie hauteur.
+           Le lecteur reste lisible sur téléphone.
         */
+
+        position: absolute;
+
+        left: 50%;
+
+        top: 65%;
+
+        transform: translate(-50%, -50%);
+
+        width: 82vw;
+
+        max-width: 430px;
 
         height: 152px;
 
         border-radius: 12px;
+
+    }
+
+
+    .spotify iframe {
+
+        width: 100%;
+
+        height: 152px;
+
+        border-radius: 12px;
+
     }
 
 }
 
 
-/* =========================================
+/* ==================================================
    PETITS TÉLÉPHONES
-   ========================================= */
+   ================================================== */
 
 @media (max-width: 380px) {
 
-    body {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+    .spotify {
 
-    .card {
-        width: 96vw;
+        width: 86vw;
 
-        padding:
-            30px
-            14px
-            27px;
-    }
+        top: 65%;
 
-    .title-word {
-        font-size: 35px;
-    }
-
-    .ampersand {
-        font-size: 51px;
-
-        margin-left: 4px;
-        margin-right: 4px;
-    }
-
-    .line {
-        width: 58px;
-    }
-
-    .subtitle {
-        font-size: 21px;
-    }
-
-    .description {
-        font-size: 20px;
     }
 
 }
@@ -484,62 +239,34 @@ body {
 
 <body>
 
-<div class="card">
 
-    <h1 class="title">
-
-        <span class="title-word">
-            Saudade
-        </span>
-
-        <span class="ampersand">
-            &amp;
-        </span>
-
-        <span class="title-word">
-            Moi
-        </span>
-
-    </h1>
+<main class="page">
 
 
-    <div class="ornament">
-
-        <span class="line"></span>
-
-        <span class="heart">
-            ♡
-        </span>
-
-        <span class="line"></span>
-
-    </div>
-
-
-    <p class="subtitle">
-        Un peu de moi, un peu de nous…
-    </p>
-
-
-    <p class="description">
-        Où chaque souvenir se prolonge en musique
-    </p>
-
+    <!--
+        SEUL ET UNIQUE LECTEUR SPOTIFY
+        FLAMME - RADIO EDIT / SLAÏ
+    -->
 
     <div class="spotify">
 
         <iframe
+
             src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator&theme=0"
 
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 
-            loading="lazy">
+            loading="lazy"
+
+            title="Flamme - Radio Edit - Slaï">
 
         </iframe>
 
     </div>
 
-</div>
+
+</main>
+
 
 </body>
 
