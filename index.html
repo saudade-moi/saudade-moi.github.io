@@ -44,7 +44,6 @@ body {
 
 /* =========================================
    VERSION ORDINATEUR
-   NE PAS MODIFIER
    ========================================= */
 
 .scene {
@@ -133,6 +132,7 @@ body {
     body {
         width: 100%;
         height: 100%;
+
         min-height: 100vh;
         min-height: 100svh;
     }
@@ -148,64 +148,63 @@ body {
 
         overflow: hidden;
 
-        background: #080509;
+        background: #050306;
     }
 
 
     /*
-       Fond agrandi derrière l'image principale.
-       Il remplit tout l'écran et supprime
-       les grandes bandes noires.
+       Fond noir et violet très profond
     */
 
-   
-body::before {
-    content: "";
+    body::before {
+        content: "";
 
-    position: fixed;
-    inset: -40px;
+        position: fixed;
+        inset: -40px;
 
-    background-image:
-        radial-gradient(
-            circle at 75% 20%,
-            rgba(111, 32, 110, 0.75) 0%,
-            rgba(57, 15, 65, 0.45) 32%,
-            transparent 65%
-        ),
-        radial-gradient(
-            circle at 20% 82%,
-            rgba(151, 80, 23, 0.45) 0%,
-            rgba(75, 25, 63, 0.40) 35%,
-            transparent 68%
-        ),
-        linear-gradient(
-            160deg,
-            #35102f 0%,
-            #541643 45%,
-            #260d2d 100%
-        ),
-        url("./saudade-sans-spotify.png");
+        background-image:
+            radial-gradient(
+                circle at 78% 22%,
+                rgba(48, 24, 61, 0.55) 0%,
+                rgba(20, 10, 27, 0.35) 38%,
+                transparent 68%
+            ),
+            radial-gradient(
+                circle at 18% 82%,
+                rgba(68, 40, 22, 0.28) 0%,
+                rgba(25, 13, 29, 0.30) 38%,
+                transparent 68%
+            ),
+            linear-gradient(
+                160deg,
+                #050306 0%,
+                #100817 45%,
+                #08040c 72%,
+                #030204 100%
+            ),
+            url("./saudade-sans-spotify.png");
 
-    background-size:
-        cover,
-        cover,
-        cover,
-        100% 100%;
+        background-size:
+            cover,
+            cover,
+            cover,
+            100% 100%;
 
-    background-position: center;
-    background-repeat: no-repeat;
+        background-position: center;
+        background-repeat: no-repeat;
 
-    filter: blur(18px);
-    transform: scale(1.12);
+        filter: blur(18px);
 
-    opacity: 1;
+        transform: scale(1.12);
 
-    z-index: 0;
-}
+        opacity: 1;
+
+        z-index: 0;
+    }
+
 
     /*
-       L'image principale conserve ses proportions.
-       Elle ne change pas sur ordinateur.
+       Image principale
     */
 
     .scene {
@@ -223,6 +222,11 @@ body::before {
         z-index: 1;
     }
 
+
+    /*
+       Fondu de l’image dans le fond sombre
+    */
+
     .decor {
         position: absolute;
 
@@ -234,11 +238,31 @@ body::before {
         display: block;
 
         object-fit: contain;
+
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.45) 5%,
+            black 13%,
+            black 87%,
+            rgba(0, 0, 0, 0.45) 95%,
+            transparent 100%
+        );
+
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.45) 5%,
+            black 13%,
+            black 87%,
+            rgba(0, 0, 0, 0.45) 95%,
+            transparent 100%
+        );
     }
 
 
     /*
-       Lecteur Spotify téléphone
+       Lecteur Spotify sur téléphone
     */
 
     .spotify {
