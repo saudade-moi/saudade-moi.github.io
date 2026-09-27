@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -12,6 +13,10 @@
 <title>Saudade & Moi</title>
 
 <style>
+
+/* =========================================
+   RÉGLAGES GÉNÉRAUX
+   ========================================= */
 
 * {
     box-sizing: border-box;
@@ -38,7 +43,8 @@ body {
 
 
 /* =========================================
-   ORDINATEUR
+   VERSION ORDINATEUR
+   NE PAS MODIFIER
    ========================================= */
 
 .scene {
@@ -50,6 +56,8 @@ body {
 
     max-height: 88vh;
     max-height: 88svh;
+
+    z-index: 1;
 }
 
 @media (min-width: 651px) {
@@ -116,17 +124,79 @@ body {
 
 
 /* =========================================
-   TÉLÉPHONE UNIQUEMENT
+   VERSION TÉLÉPHONE UNIQUEMENT
    ========================================= */
 
 @media (max-width: 650px) {
 
+    html,
     body {
-        background: #080509;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
     }
 
+    body {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0;
+
+        overflow: hidden;
+
+        background: #080509;
+    }
+
+
+    /*
+       Fond agrandi derrière l'image principale.
+       Il remplit tout l'écran et supprime
+       les grandes bandes noires.
+    */
+
+    body::before {
+        content: "";
+
+        position: fixed;
+
+        top: -35px;
+        right: -35px;
+        bottom: -35px;
+        left: -35px;
+
+        background-image:
+            linear-gradient(
+                rgba(8, 5, 9, 0.18),
+                rgba(8, 5, 9, 0.18)
+            ),
+            url("./saudade-sans-spotify.png");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        filter: blur(22px);
+
+        transform: scale(1.08);
+
+        opacity: 0.72;
+
+        z-index: 0;
+    }
+
+
+    /*
+       L'image principale conserve ses proportions.
+       Elle ne change pas sur ordinateur.
+    */
+
     .scene {
+        position: relative;
+
         flex: 0 0 auto;
 
         width: 158vw;
@@ -135,32 +205,56 @@ body {
         max-height: none;
 
         aspect-ratio: 3 / 2;
+
+        z-index: 1;
     }
 
+    .decor {
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: contain;
+    }
+
+
+    /*
+       Lecteur Spotify téléphone
+    */
+
     .spotify {
-        width: 76.42vw;
+        position: absolute;
 
         left: 50%;
         transform: translateX(-50%);
 
         top: 55.27%;
 
-        height: 15.63vw;
+        width: 76.42vw;
+        height: 80px;
 
-        min-height: 0;
-
-        border-radius: 10px;
+        min-height: 80px;
 
         overflow: hidden;
 
+        border-radius: 12px;
+
         background: #121212;
+
+        box-shadow:
+            0 7px 20px rgba(0, 0, 0, 0.42);
     }
 
     .spotify iframe {
         display: block;
 
         width: 100%;
-        height: 100%;
+        height: 80px;
 
         border: 0;
 
@@ -171,7 +265,7 @@ body {
 
 
 /* =========================================
-   PETITS TÉLÉPHONES
+   TRÈS PETITS TÉLÉPHONES
    ========================================= */
 
 @media (max-width: 380px) {
@@ -181,18 +275,25 @@ body {
     }
 
     .spotify {
-        width: 76.42vw;
-
         left: 50%;
         transform: translateX(-50%);
 
         top: 55.27%;
-        height: 15.63vw;
+
+        width: 78vw;
+        height: 80px;
+
+        min-height: 80px;
+    }
+
+    .spotify iframe {
+        height: 80px;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -203,24 +304,21 @@ body {
     <img
         class="decor"
         src="./saudade-sans-spotify.png"
-        alt="">
+        alt=""
+    >
 
 
     <div class="spotify">
 
         <iframe
             src="https://open.spotify.com/embed/track/2UtoiQC20KmUEEyW4gg5eo?utm_source=generator&theme=0"
-
             allow="autoplay;
                    clipboard-write;
                    encrypted-media;
                    fullscreen;
                    picture-in-picture"
-
             loading="lazy"
-
             title="Flamme - Radio Edit - Slaï">
-
         </iframe>
 
     </div>
