@@ -59,18 +59,6 @@ body {
     z-index: 1;
 }
 
-@media (min-width: 651px) {
-
-    .scene {
-        width: min(
-            92vw,
-            1320px,
-            calc(88svh * 1.5)
-        );
-    }
-
-}
-
 .decor {
     position: absolute;
 
@@ -82,6 +70,109 @@ body {
     display: block;
 
     object-fit: contain;
+}
+
+
+/* =========================================
+   ORDINATEUR UNIQUEMENT
+   ========================================= */
+
+@media (min-width: 651px) {
+
+    body {
+        position: relative;
+
+        background: #050306;
+    }
+
+
+    /*
+       Fond noir-violet profond
+       autour de l’image
+    */
+
+    body::before {
+        content: "";
+
+        position: fixed;
+        inset: -50px;
+
+        background-image:
+            radial-gradient(
+                circle at 78% 22%,
+                rgba(48, 24, 61, 0.45) 0%,
+                rgba(20, 10, 27, 0.25) 38%,
+                transparent 68%
+            ),
+            radial-gradient(
+                circle at 18% 82%,
+                rgba(68, 40, 22, 0.20) 0%,
+                rgba(25, 13, 29, 0.22) 38%,
+                transparent 68%
+            ),
+            linear-gradient(
+                160deg,
+                #050306 0%,
+                #100817 45%,
+                #08040c 72%,
+                #030204 100%
+            ),
+            url("./saudade-sans-spotify.png");
+
+        background-size:
+            cover,
+            cover,
+            cover,
+            100% 100%;
+
+        background-position: center;
+        background-repeat: no-repeat;
+
+        filter: blur(24px);
+
+        transform: scale(1.1);
+
+        opacity: 1;
+
+        z-index: 0;
+    }
+
+
+    /*
+       Taille ordinateur conservée
+    */
+
+    .scene {
+        width: min(
+            92vw,
+            1320px,
+            calc(88svh * 1.5)
+        );
+    }
+
+
+    /*
+       Fondu très léger sur ordinateur
+    */
+
+    .decor {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+        );
+
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 5%,
+            black 95%,
+            transparent 100%
+        );
+    }
+
 }
 
 
@@ -153,7 +244,7 @@ body {
 
 
     /*
-       Fond noir et violet très profond
+       Fond noir et violet profond
     */
 
     body::before {
@@ -224,7 +315,7 @@ body {
 
 
     /*
-       Fondu de l’image dans le fond sombre
+       Fondu téléphone
     */
 
     .decor {
